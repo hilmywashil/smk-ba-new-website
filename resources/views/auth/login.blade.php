@@ -110,7 +110,7 @@
                     </div>
                     <div class="mt-5 text-muted">
                         <span> Belum punya akun?</span>
-                        <a href="auth-register-cover.html" class="fw-bold">Buat Akun</a>
+                        <a href="{{ route('register') }}" class="fw-bold">Buat Akun</a>
                     </div>
                 </div>
             </div>

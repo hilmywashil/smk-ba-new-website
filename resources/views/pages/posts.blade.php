@@ -8,7 +8,7 @@
         <!-- Page Title -->
         <div class="page-title light-background">
             <div class="container d-lg-flex justify-content-between align-items-center">
-                <h1 class="mb-2 mb-lg-0">Blog</h1>
+                <h1 class="mb-2 mb-lg-0">Berita & Kegiatan</h1>
                 <nav class="breadcrumbs">
                     <ol>
                         <li><a href="{{ route('home') }}">Home</a></li>

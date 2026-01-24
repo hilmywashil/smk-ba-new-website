@@ -13,7 +13,7 @@
                     <ol>
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('posts') }}">Berita & Kegiatan</a></li>
-                        <li class="current">{{ $post->title }}</li>
+                        <li class="current">Detail Berita</li>
                     </ol>
                 </nav>
             </div>
@@ -54,12 +54,20 @@
                         <aside class="table-of-contents" data-aos="fade-left">
                             <h3>Berita & Kegiatan Terbaru</h3>
                             <nav>
-                                @foreach ($recentPosts as $recentPost)
-                                    <ul>
-                                        <li><a href="{{ route('posts.show', $recentPost->slug) }}">{{ $recentPost->title }}</a></li>
-                                    </ul>
-                                @endforeach
+                                <ul style="list-style:none; padding:0; margin:0;">
+                                    @foreach ($recentPosts as $recentPost)
+                                        <li style="display:flex; align-items:flex-start; margin-bottom:8px;">
+
+                                            <a href="{{ route('posts.show', $recentPost->slug) }}"
+                                                style="text-decoration:none; line-height:1.4; display:block; margin-bottom: 8px;" class="active">
+                                                {{ Str::limit($recentPost->title, 50) }}
+                                            </a>
+
+                                        </li>
+                                    @endforeach
+                                </ul>
                             </nav>
+
                         </aside>
 
                         <div class="article-content">
@@ -91,15 +99,15 @@
                         </div>
 
                         <!-- <div class="article-tags">
-                                <h4>Related Topics</h4>
-                                <div class="tags">
-                                    <a href="#" class="tag">UI Design</a>
-                                    <a href="#" class="tag">User Experience</a>
-                                    <a href="#" class="tag">Design Trends</a>
-                                    <a href="#" class="tag">Innovation</a>
-                                    <a href="#" class="tag">Technology</a>
-                                </div>
-                            </div> -->
+                                    <h4>Related Topics</h4>
+                                    <div class="tags">
+                                        <a href="#" class="tag">UI Design</a>
+                                        <a href="#" class="tag">User Experience</a>
+                                        <a href="#" class="tag">Design Trends</a>
+                                        <a href="#" class="tag">Innovation</a>
+                                        <a href="#" class="tag">Technology</a>
+                                    </div>
+                                </div> -->
                     </div>
 
                 </article>

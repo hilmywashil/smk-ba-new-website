@@ -17,7 +17,7 @@
                                 <h1>SMK IT Baitul Aziz</h1>
                                 <p>Menuai Risalah, Menggapai Peradaban.</p>
 
-                                <div class="hero-stats">
+                                <!-- <div class="hero-stats">
                                     <div class="stat-item">
                                         <span class="number purecounter" data-purecounter-start="0"
                                             data-purecounter-end="100" data-purecounter-duration="2"></span>
@@ -33,7 +33,7 @@
                                             data-purecounter-end="12" data-purecounter-duration="2"></span>
                                         <span class="label">Tahun Berdiri</span>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="hero-buttons">
                                     <a href="#courses" class="btn btn-primary">Tentang Kami</a>

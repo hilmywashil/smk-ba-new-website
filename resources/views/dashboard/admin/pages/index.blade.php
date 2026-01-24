@@ -111,22 +111,22 @@
                                     <div class="col-xxl-2 col-lg-4 col-md-6">
                                         <div class="card stretch stretch-full border border-dashed border-gray-5">
                                             <div class="card-body rounded-3 text-center">
-                                                <i class="bi bi-envelope fs-3 text-primary"></i>
-                                                <div class="fs-4 fw-bolder text-dark mt-3 mb-1">50,545</div>
+                                                <i class="bi bi-newspaper fs-3 text-primary"></i>
+                                                <div class="fs-4 fw-bolder text-dark mt-3 mb-1">{{ $beritaCount }}</div>
                                                 <p
                                                     class="fs-12 fw-medium text-muted text-spacing-1 mb-0 text-truncate-1-line">
-                                                    Total Email</p>
+                                                    Total Berita</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xxl-2 col-lg-4 col-md-6">
                                         <div class="card stretch stretch-full border border-dashed border-gray-5">
                                             <div class="card-body rounded-3 text-center">
-                                                <i class="bi bi-envelope-plus fs-3 text-warning"></i>
-                                                <div class="fs-4 fw-bolder text-dark mt-3 mb-1">25,000</div>
+                                                <i class="bi bi-clipboard fs-3 text-warning"></i>
+                                                <div class="fs-4 fw-bolder text-dark mt-3 mb-1">{{ $activitiesCount }}</div>
                                                 <p
                                                     class="fs-12 fw-medium text-muted text-spacing-1 mb-0 text-truncate-1-line">
-                                                    Email Sent</p>
+                                                    Total Kegiatan</p>
                                             </div>
                                         </div>
                                     </div>

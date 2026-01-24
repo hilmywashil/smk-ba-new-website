@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminPostController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
 
@@ -13,10 +14,12 @@ Route::get('/news-activities/{slug}', [PostController::class, 'show'])->name('po
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
+
+    Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/dashboard/admin', fn() => view('dashboard.admin.pages.index'))->name('admin.dashboard');
+    Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     // Admin Berita Routes
     Route::get('/dashboard/admin/berita', [AdminPostController::class, 'index'])->name('admin.berita');
