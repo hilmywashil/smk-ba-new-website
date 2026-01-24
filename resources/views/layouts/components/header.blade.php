@@ -7,12 +7,29 @@
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="instructors.html">Instructors</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li>
+          <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">
+            Beranda
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ url('about') }}" class="{{ request()->is('about') ? 'active' : '' }}">
+            Tentang
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ url('instructors') }}" class="{{ request()->is('instructors') ? 'active' : '' }}">
+            Pengajar
+          </a>
+        </li>
+
+        <li>
+          <a href="{{ route('posts') }}" class="{{ request()->routeIs('posts*') ? 'active' : '' }}">
+            Berita
+          </a>
+        </li>
         <li class="dropdown"><a href="#"><span>More Pages</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           <ul>
             <li><a href="course-details.html">Course Details</a></li>
@@ -43,12 +60,30 @@
             <li><a href="#">Dropdown 4</a></li>
           </ul>
         </li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html">Kontak</a></li>
       </ul>
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
 
-    <a class="btn-getstarted" href="enroll.html">Enroll Now</a>
+    @auth
+      @auth
+        <a class="btn-getstarted" href="{{ url('/dashboard/' . auth()->user()->role) }}">
+          Dashboard
+        </a>
+
+        <!-- button logout - optional -->
+        <!-- <form action="{{ route('logout') }}" method="POST" class="d-inline">
+              @csrf
+              <button type="submit" class="btn-getstarted btn-logout">
+                Logout
+              </button>
+            </form> -->
+      @endauth
+    @else
+      <a class="btn-getstarted" href="{{ route('login') }}">
+        Login
+      </a>
+    @endauth
 
   </div>
 </header>

@@ -21,7 +21,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'author_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -32,6 +38,21 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isGuru()
+    {
+        return $this->role === 'guru';
+    }
+
+    public function isSiswa()
+    {
+        return $this->role === 'siswa';
+    }
 
     /**
      * Get the attributes that should be cast.

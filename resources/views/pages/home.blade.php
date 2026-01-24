@@ -20,18 +20,18 @@
                                 <div class="hero-stats">
                                     <div class="stat-item">
                                         <span class="number purecounter" data-purecounter-start="0"
-                                            data-purecounter-end="104" data-purecounter-duration="2"></span>
+                                            data-purecounter-end="100" data-purecounter-duration="2"></span>
                                         <span class="label">Siswa/i</span>
                                     </div>
                                     <div class="stat-item">
                                         <span class="number purecounter" data-purecounter-start="0"
-                                            data-purecounter-end="1200" data-purecounter-duration="2"></span>
-                                        <span class="label">Expert Courses</span>
+                                            data-purecounter-end="1000" data-purecounter-duration="2"></span>
+                                        <span class="label">Lebih Alumni</span>
                                     </div>
                                     <div class="stat-item">
                                         <span class="number purecounter" data-purecounter-start="0"
-                                            data-purecounter-end="98" data-purecounter-duration="2"></span>
-                                        <span class="label">Success Rate %</span>
+                                            data-purecounter-end="12" data-purecounter-duration="2"></span>
+                                        <span class="label">Tahun Berdiri</span>
                                     </div>
                                 </div>
 
@@ -55,28 +55,28 @@
                                             <i class="bi bi-code-slash"></i>
                                         </div>
                                         <div class="card-content">
-                                            <h6>Web Development</h6>
-                                            <span>2,450 Students</span>
+                                            <h6>Rekayasa Perangkat Lunak</h6>
+                                            <span>Jurusan</span>
                                         </div>
                                     </div>
 
-                                    <div class="course-card" data-aos="fade-up" data-aos-delay="400">
-                                        <div class="card-icon">
-                                            <i class="bi bi-palette"></i>
-                                        </div>
-                                        <div class="card-content">
-                                            <h6>UI/UX Design</h6>
-                                            <span>1,890 Students</span>
-                                        </div>
-                                    </div>
+                                    <!-- <div class="course-card" data-aos="fade-up" data-aos-delay="400">
+                                            <div class="card-icon">
+                                                <i class="bi bi-palette"></i>
+                                            </div>
+                                            <div class="card-content">
+                                                <h6>UI/UX Design</h6>
+                                                <span>1,890 Students</span>
+                                            </div>
+                                        </div> -->
 
                                     <div class="course-card" data-aos="fade-up" data-aos-delay="500">
                                         <div class="card-icon">
-                                            <i class="bi bi-graph-up"></i>
+                                            <i class="bi bi-joystick"></i>
                                         </div>
                                         <div class="card-content">
-                                            <h6>Digital Marketing</h6>
-                                            <span>3,200 Students</span>
+                                            <h6>PPLG</h6>
+                                            <span>Jurusan</span>
                                         </div>
                                     </div>
                                 </div>
@@ -263,6 +263,206 @@
 
         </section><!-- /Featured Instructors Section -->
 
+        <!-- Course Categories Section -->
+        <section id="course-categories" class="course-categories section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Ekstrakulikuler</h2>
+                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row g-4">
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                        <a href="courses.html" class="category-card category-tech">
+                            <div class="category-icon">
+                                <i class="bi bi-laptop"></i>
+                            </div>
+                            <h5>Computer Science</h5>
+                            <span class="course-count">24 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="150">
+                        <a href="courses.html" class="category-card category-business">
+                            <div class="category-icon">
+                                <i class="bi bi-briefcase"></i>
+                            </div>
+                            <h5>Business</h5>
+                            <span class="course-count">18 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                        <a href="courses.html" class="category-card category-design">
+                            <div class="category-icon">
+                                <i class="bi bi-palette"></i>
+                            </div>
+                            <h5>Design</h5>
+                            <span class="course-count">15 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="250">
+                        <a href="courses.html" class="category-card category-health">
+                            <div class="category-icon">
+                                <i class="bi bi-heart-pulse"></i>
+                            </div>
+                            <h5>Health &amp; Medical</h5>
+                            <span class="course-count">12 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
+                        <a href="courses.html" class="category-card category-language">
+                            <div class="category-icon">
+                                <i class="bi bi-globe"></i>
+                            </div>
+                            <h5>Languages</h5>
+                            <span class="course-count">21 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="350">
+                        <a href="courses.html" class="category-card category-science">
+                            <div class="category-icon">
+                                <i class="bi bi-diagram-3"></i>
+                            </div>
+                            <h5>Science</h5>
+                            <span class="course-count">16 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                        <a href="courses.html" class="category-card category-marketing">
+                            <div class="category-icon">
+                                <i class="bi bi-megaphone"></i>
+                            </div>
+                            <h5>Marketing</h5>
+                            <span class="course-count">19 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="150">
+                        <a href="courses.html" class="category-card category-finance">
+                            <div class="category-icon">
+                                <i class="bi bi-graph-up-arrow"></i>
+                            </div>
+                            <h5>Finance</h5>
+                            <span class="course-count">14 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                        <a href="courses.html" class="category-card category-photography">
+                            <div class="category-icon">
+                                <i class="bi bi-camera"></i>
+                            </div>
+                            <h5>Photography</h5>
+                            <span class="course-count">11 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="250">
+                        <a href="courses.html" class="category-card category-music">
+                            <div class="category-icon">
+                                <i class="bi bi-music-note-beamed"></i>
+                            </div>
+                            <h5>Music</h5>
+                            <span class="course-count">13 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
+                        <a href="courses.html" class="category-card category-engineering">
+                            <div class="category-icon">
+                                <i class="bi bi-gear"></i>
+                            </div>
+                            <h5>Engineering</h5>
+                            <span class="course-count">22 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="350">
+                        <a href="courses.html" class="category-card category-law">
+                            <div class="category-icon">
+                                <i class="bi bi-journal-text"></i>
+                            </div>
+                            <h5>Law &amp; Legal</h5>
+                            <span class="course-count">9 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                        <a href="courses.html" class="category-card category-culinary">
+                            <div class="category-icon">
+                                <i class="bi bi-cup-hot"></i>
+                            </div>
+                            <h5>Culinary Arts</h5>
+                            <span class="course-count">8 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="150">
+                        <a href="courses.html" class="category-card category-sports">
+                            <div class="category-icon">
+                                <i class="bi bi-trophy"></i>
+                            </div>
+                            <h5>Sports &amp; Fitness</h5>
+                            <span class="course-count">17 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                        <a href="courses.html" class="category-card category-writing">
+                            <div class="category-icon">
+                                <i class="bi bi-pen"></i>
+                            </div>
+                            <h5>Writing</h5>
+                            <span class="course-count">10 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="250">
+                        <a href="courses.html" class="category-card category-psychology">
+                            <div class="category-icon">
+                                <i class="bi bi-body-text"></i>
+                            </div>
+                            <h5>Psychology</h5>
+                            <span class="course-count">12 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
+                        <a href="courses.html" class="category-card category-environment">
+                            <div class="category-icon">
+                                <i class="bi bi-tree"></i>
+                            </div>
+                            <h5>Environment</h5>
+                            <span class="course-count">7 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="350">
+                        <a href="courses.html" class="category-card category-communication">
+                            <div class="category-icon">
+                                <i class="bi bi-chat-dots"></i>
+                            </div>
+                            <h5>Communication</h5>
+                            <span class="course-count">15 Courses</span>
+                        </a>
+                    </div><!-- End Category Item -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /Course Categories Section -->
+
+
         <!-- Testimonials Section -->
         <section id="testimonials" class="testimonials section">
             <!-- Section Title -->
@@ -334,29 +534,29 @@
                         <div class="testimonials-container">
                             <div class="swiper testimonials-slider init-swiper" data-aos="fade-up" data-aos-delay="400">
                                 <script type="application/json" class="swiper-config">
-                      {
-                        "loop": true,
-                        "speed": 600,
-                        "autoplay": {
-                          "delay": 5000
-                        },
-                        "slidesPerView": 1,
-                        "spaceBetween": 30,
-                        "pagination": {
-                          "el": ".swiper-pagination",
-                          "type": "bullets",
-                          "clickable": true
-                        },
-                        "breakpoints": {
-                          "768": {
-                            "slidesPerView": 2
-                          },
-                          "992": {
-                            "slidesPerView": 3
+                          {
+                            "loop": true,
+                            "speed": 600,
+                            "autoplay": {
+                              "delay": 5000
+                            },
+                            "slidesPerView": 1,
+                            "spaceBetween": 30,
+                            "pagination": {
+                              "el": ".swiper-pagination",
+                              "type": "bullets",
+                              "clickable": true
+                            },
+                            "breakpoints": {
+                              "768": {
+                                "slidesPerView": 2
+                              },
+                              "992": {
+                                "slidesPerView": 3
+                              }
+                            }
                           }
-                        }
-                      }
-                    </script>
+                        </script>
 
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
