@@ -10,8 +10,18 @@ class PostController extends Controller
     public function index()
     {
         $latestPost = Post::latest()->take(1)->first();
-        $lastPost = Post::latest()->skip(1)->take(3)->get();
-        $otherPosts = Post::latest()->skip(4)->paginate(10);
+        $lastPost = Post::latest()->skip(1)->take(4)->get();
+
+        $posts = Post::latest()->get();
+
+        $otherPosts = $posts->slice(5)->take(9);
+        $otherPosts = new \Illuminate\Pagination\LengthAwarePaginator(
+            $otherPosts,
+            $posts->count() - 5,
+            9,
+            request()->get('page', 1),
+            ['path' => request()->url()]
+        );
 
         return view('pages.posts', compact('latestPost', 'lastPost', 'otherPosts'));
     }

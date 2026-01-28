@@ -19,11 +19,15 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/css/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/css/select2-theme.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendors/css/jquery.time-to.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 
 </head>
 
 <body>
-
     @include('dashboard.admin.layouts.components.sidebar')
 
     @include('dashboard.admin.layouts.components.header')
@@ -41,6 +45,47 @@
     <script src="{{ asset('admin/assets/js/dashboard-init.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/analytics-init.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/theme-customizer-init.min.js') }}"></script>
+
+    @include('dashboard.admin.layouts.components.sweetalert')
+
+    <script>
+        const notyf = new Notyf({
+            position: { x: 'right', y: 'top' },
+            duration: 3000,
+            ripple: false,
+            dismissible: true
+        });
+
+        @if (session('success'))
+            notyf.success('{{ session('success') }}');
+        @endif
+
+        @if (session('error'))
+            notyf.error('{{ session('error') }}');
+        @endif
+    </script>
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                toolbar: [
+                    'heading', '|',
+                    'bold', 'italic', 'underline',
+                    '|',
+                    'link', 'bulletedList', 'numberedList',
+                    '|',
+                    'blockQuote', 'insertTable',
+                    '|',
+                    'undo', 'redo'
+                ]
+            })
+            .then(editor => {
+                window.editor = editor;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 
 
 </body>

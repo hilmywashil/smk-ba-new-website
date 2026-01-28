@@ -10,9 +10,19 @@ use Storage;
 
 class AdminPostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::orderBy("created_at", "desc")->paginate(10);
+        $query = Post::query();
+
+        if ($request->filled('category')) {
+            $query->where('category', $request->category);
+        }
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        $posts = $query->orderBy('created_at', 'desc')->paginate(15)->withQueryString();
 
         return view('dashboard.admin.pages.berita', compact('posts'));
     }
@@ -26,15 +36,28 @@ class AdminPostController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:posts,slug',
+            'slug' => 'required|string|max:255',
             'content' => 'required|string',
             'category' => 'required|in:news,activities',
             'status' => 'required|in:draft,published',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120',
         ]);
 
+        $slug = $data['slug'];
+        $count = 1;
+        while (Post::where('slug', $slug)->exists()) {
+            $slug = $data['slug'] . '-' . $count;
+            $count++;
+        }
+        $data['slug'] = $slug;
+
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('posts', 'public');
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+
+            $filename = $data['slug'] . '.' . $extension;
+
+            $data['image'] = $file->storeAs('posts', $filename, 'public');
         }
 
         $data['author_id'] = Auth::id();
@@ -46,24 +69,28 @@ class AdminPostController extends Controller
             ->with('success', 'Berita berhasil ditambahkan.');
     }
 
-    public function edit(Post $post)
+    public function edit($id)
     {
-        return view('dashboard.admin.berita.edit', compact('post'));
+        $post = Post::findOrFail($id);
+
+        return view('dashboard.admin.pages.edit.edit-berita', compact('post'));
     }
 
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
+        $post = Post::findOrFail($id);
+
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:posts,slug,' . $post->id,
             'content' => 'required|string',
             'category' => 'required|in:news,activities',
-            'status' => 'required|in:draft,publish',
+            'status' => 'required|in:draft,published',
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         if ($request->hasFile('image')) {
-            if ($post->image) {
+            if ($post->image && Storage::disk('public')->exists($post->image)) {
                 Storage::disk('public')->delete($post->image);
             }
 

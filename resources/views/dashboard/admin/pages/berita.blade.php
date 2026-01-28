@@ -10,11 +10,11 @@
             <div class="page-header">
                 <div class="page-header-left d-flex align-items-center">
                     <div class="page-header-title">
-                        <h5 class="m-b-10">Konten</h5>
+                        <h5 class="m-b-10">Kelola Konten</h5>
                     </div>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Beranda</a></li>
-                        <li class="breadcrumb-item">Berita & Kegiatan</li>
+                        <li class="breadcrumb-item">Postingan</li>
                     </ul>
                 </div>
                 <div class="page-header-right ms-auto">
@@ -27,60 +27,49 @@
                         </div>
                         <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
                             <div class="dropdown filter-dropdown">
-                                <a class="btn btn-md btn-light-brand" data-bs-toggle="dropdown" data-bs-offset="0, 10"
+                                <a class="btn btn-md btn-light-brand" data-bs-toggle="dropdown"
                                     data-bs-auto-close="outside">
                                     <i class="feather-filter me-2"></i>
                                     <span>Filter</span>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-end">
-                                    <div class="dropdown-item">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="Role" checked="checked">
-                                            <label class="custom-control-label c-pointer" for="Role">Role</label>
+
+                                <div class="dropdown-menu dropdown-menu-end p-3" style="min-width: 220px;">
+                                    <form action="{{ route('admin.berita') }}" method="GET"
+                                        class="d-flex flex-column gap-2">
+                                        <div class="mb-2">
+                                            <label for="category" class="form-label fs-12 mb-1">Kategori</label>
+                                            <select name="category" id="category" class="form-select form-select-sm">
+                                                <option value="">Semua Kategori</option>
+                                                <option value="news" {{ request('category') == 'news' ? 'selected' : '' }}>
+                                                    Berita</option>
+                                                <option value="activities" {{ request('category') == 'activities' ? 'selected' : '' }}>Kegiatan</option>
+                                            </select>
                                         </div>
-                                    </div>
-                                    <div class="dropdown-item">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="Team" checked="checked">
-                                            <label class="custom-control-label c-pointer" for="Team">Team</label>
+
+                                        <div class="mb-2">
+                                            <label for="status" class="form-label fs-12 mb-1">Status</label>
+                                            <select name="status" id="status" class="form-select form-select-sm">
+                                                <option value="">Semua Status</option>
+                                                <option value="draft" {{ request('status') == 'draft' ? 'selected' : '' }}>
+                                                    Draf</option>
+                                                <option value="published" {{ request('status') == 'published' ? 'selected' : '' }}>Publikasi</option>
+                                            </select>
                                         </div>
-                                    </div>
-                                    <div class="dropdown-item">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="Email"
-                                                checked="checked">
-                                            <label class="custom-control-label c-pointer" for="Email">Email</label>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-item">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="Member"
-                                                checked="checked">
-                                            <label class="custom-control-label c-pointer" for="Member">Member</label>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-item">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="Recommendation"
-                                                checked="checked">
-                                            <label class="custom-control-label c-pointer"
-                                                for="Recommendation">Recommendation</label>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown-divider"></div>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <i class="feather-plus me-3"></i>
-                                        <span>Create New</span>
-                                    </a>
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        <i class="feather-filter me-3"></i>
-                                        <span>Manage Filter</span>
-                                    </a>
+
+                                        <button type="submit" class="btn btn-md btn-primary mt-2">
+                                            <i class="feather-filter me-1"></i>Filter
+                                        </button>
+                                        <a href="{{ route('admin.berita') }}"
+                                            class="btn btn-md btn-secondary mt-1 text-center">
+                                            <i class="feather-rotate-ccw me-1"></i> Reset
+                                        </a>
+                                    </form>
                                 </div>
                             </div>
+
                             <a href="{{ route('admin.berita.create') }}" class="btn btn-md btn-primary">
                                 <i class="feather-plus me-2"></i>
-                                <span>Tambah Berita / Kegiatan</span>
+                                <span>Tambah Postingan</span>
                             </a>
                         </div>
                     </div>
@@ -96,49 +85,10 @@
             <div class="main-content">
                 <div class="row">
                     <!-- [Leads] start -->
-                    <div class="col-xxl-8">
+                    <div class="col-12">
                         <div class="card stretch stretch-full">
                             <div class="card-header">
-                                <h5 class="card-title">Berita & Kegiatan</h5>
-                                <div class="card-header-action">
-                                    <div class="card-header-btn">
-                                        <div data-bs-toggle="tooltip" title="Delete">
-                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-danger"
-                                                data-bs-toggle="remove"> </a>
-                                        </div>
-                                        <div data-bs-toggle="tooltip" title="Refresh">
-                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-warning"
-                                                data-bs-toggle="refresh"> </a>
-                                        </div>
-                                        <div data-bs-toggle="tooltip" title="Maximize/Minimize">
-                                            <a href="javascript:void(0);" class="avatar-text avatar-xs bg-success"
-                                                data-bs-toggle="expand"> </a>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown">
-                                        <a href="javascript:void(0);" class="avatar-text avatar-sm"
-                                            data-bs-toggle="dropdown" data-bs-offset="25, 25">
-                                            <div data-bs-toggle="tooltip" title="Options">
-                                                <i class="feather-more-vertical"></i>
-                                            </div>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <a href="javascript:void(0);" class="dropdown-item"><i
-                                                    class="feather-at-sign"></i>New</a>
-                                            <a href="javascript:void(0);" class="dropdown-item"><i
-                                                    class="feather-calendar"></i>Event</a>
-                                            <a href="javascript:void(0);" class="dropdown-item"><i
-                                                    class="feather-bell"></i>Snoozed</a>
-                                            <a href="javascript:void(0);" class="dropdown-item"><i
-                                                    class="feather-trash-2"></i>Deleted</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a href="javascript:void(0);" class="dropdown-item"><i
-                                                    class="feather-settings"></i>Settings</a>
-                                            <a href="javascript:void(0);" class="dropdown-item"><i
-                                                    class="feather-life-buoy"></i>Tips & Tricks</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                <h5 class="card-title">Postingan</h5>
                             </div>
                             <div class="card-body custom-card-action p-0">
                                 <div class="table-responsive">
@@ -148,6 +98,7 @@
                                                 <th scope="row">Judul</th>
                                                 <th>Kategori</th>
                                                 <th>Tanggal Dibuat</th>
+                                                <th>Terakhir Di Update</th>
                                                 <th>Status</th>
                                                 <th class="text-end">Actions</th>
                                             </tr>
@@ -161,47 +112,56 @@
                                                                 <img src="{{ asset('storage/' . $post->image) }}"
                                                                     class="w-100 h-100 object-fit-cover rounded" alt="">
                                                             </div>
-                                                            <a href="javascript:void(0);">
-                                                                <span class="d-block">{{ Str::limit($post->title, 30) }}</span>
+                                                            <a href="{{ route('posts.show', $post->slug) }}" target="_blank"
+                                                                data-bs-toggle="tooltip" title="Lihat Postingan">
                                                                 <span
-                                                                    class="fs-12 d-block fw-normal text-muted">{{ Str::limit($post->content, 20) }}
+                                                                    class="d-block">{{ Str::limit(strip_tags($post->title), 30) }}</span>
+                                                                <span
+                                                                    class="fs-12 d-block fw-normal text-muted">{{ Str::limit(strip_tags($post->content), 20) }}
                                                                 </span>
                                                             </a>
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <span class="badge bg-gray-200 text-dark">
-                                                            {{ $post->category === 'news' ? 'Berita' : 'Kegiatan' }}
-                                                        </span>
+                                                        {{ $post->category === 'news' ? 'Berita' : 'Kegiatan' }}
                                                     </td>
 
                                                     <td>{{ $post->created_at->format('d M Y') }}</td>
+                                                    <td>{{ $post->updated_at->format('d M Y') }}</td>
+
                                                     <td>
                                                         <span
-                                                            class="badge bg-soft-success text-success">{{ Str::upper($post->status) }}</span>
+                                                            class="badge 
+                                                                                    {{ $post->status === 'published' ? 'bg-soft-success text-success' : 'bg-gray-200 text-dark' }}">
+                                                            {{ $post->status === 'published' ? 'PUBLIKASI' : 'DRAF' }}
+                                                        </span>
                                                     </td>
-                                                    <td class="text-end dropdown">
-                                                        <a href="javascript:void(0);" data-bs-toggle="dropdown"
-                                                            title="Option"><i class="feather-more-vertical"></i></a>
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a href="javascript:void(0);" class="dropdown-item"><i
-                                                                    class="bi bi-pencil"></i>Edit</a>
+                                                    <td class="text-end">
+                                                        <div class="d-inline-flex gap-2">
+                                                            <a href="{{ route('admin.berita.edit', $post->id) }}"
+                                                                class="btn btn-sm btn-warning" data-bs-toggle="tooltip"
+                                                                title="Edit Postingan">
+                                                                <i class="bi bi-pencil"></i>
+                                                            </a>
+
                                                             <form action="{{ route('admin.berita.destroy', $post->id) }}"
                                                                 method="POST" class="d-inline">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button type="submit" class="dropdown-item"
-                                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus berita ini?')">
-                                                                    <i class="bi bi-trash"></i> Delete
+                                                                <button type="submit" class="btn btn-sm btn-danger"
+                                                                    data-bs-toggle="tooltip" title="Hapus Postingan"
+                                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus postingan ini?')">
+                                                                    <i class="bi bi-trash"></i>
                                                                 </button>
                                                             </form>
                                                         </div>
                                                     </td>
+
                                                 </tr>
                                             @empty
                                                 <tr>
                                                     <td colspan="5" class="text-center">
-                                                        Belum ada berita atau kegiatan.
+                                                        Tidak ada postingan ditemukan.
                                                     </td>
                                                 </tr>
                                             @endforelse
@@ -209,160 +169,36 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                <ul class="list-unstyled d-flex align-items-center gap-2 mb-0 pagination-common-style">
-                                    <li>
-                                        <a href="javascript:void(0);"><i class="bi bi-arrow-left"></i></a>
-                                    </li>
-                                    <li><a href="javascript:void(0);" class="active">1</a></li>
-                                    <li><a href="javascript:void(0);">2</a></li>
-                                    <li>
-                                        <a href="javascript:void(0);"><i class="bi bi-dot"></i></a>
-                                    </li>
-                                    <li><a href="javascript:void(0);">8</a></li>
-                                    <li><a href="javascript:void(0);">9</a></li>
-                                    <li>
-                                        <a href="javascript:void(0);"><i class="bi bi-arrow-right"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
+                            @if ($posts->hasPages())
+                                <div class="card-footer">
+                                    <ul class="list-unstyled d-flex align-items-center gap-2 mb-0 pagination-common-style">
+
+                                        <li class="{{ $posts->onFirstPage() ? 'disabled' : '' }}">
+                                            <a href="{{ $posts->previousPageUrl() ?? 'javascript:void(0);' }}">
+                                                <i class="bi bi-arrow-left"></i>
+                                            </a>
+                                        </li>
+
+                                        @foreach ($posts->links()->elements[0] as $page => $url)
+                                            <li>
+                                                <a href="{{ $url }}" class="{{ $page == $posts->currentPage() ? 'active' : '' }}">
+                                                    {{ $page }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+
+                                        <li class="{{ $posts->hasMorePages() ? '' : 'disabled' }}">
+                                            <a href="{{ $posts->nextPageUrl() ?? 'javascript:void(0);' }}">
+                                                <i class="bi bi-arrow-right"></i>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <!-- [Leads] end -->
-                    <!-- [Top Selling] start
-                        <div class="col-xxl-4">
-                            <div class="card stretch stretch-full">
-                                <div class="card-header">
-                                    <h5 class="card-title">Top Selling</h5>
-                                    <div class="card-header-action">
-                                        <div class="card-header-btn">
-                                            <div data-bs-toggle="tooltip" title="Delete">
-                                                <a href="javascript:void(0);" class="avatar-text avatar-xs bg-danger"
-                                                    data-bs-toggle="remove"> </a>
-                                            </div>
-                                            <div data-bs-toggle="tooltip" title="Refresh">
-                                                <a href="javascript:void(0);" class="avatar-text avatar-xs bg-warning"
-                                                    data-bs-toggle="refresh"> </a>
-                                            </div>
-                                            <div data-bs-toggle="tooltip" title="Maximize/Minimize">
-                                                <a href="javascript:void(0);" class="avatar-text avatar-xs bg-success"
-                                                    data-bs-toggle="expand"> </a>
-                                            </div>
-                                        </div>
-                                        <div class="dropdown">
-                                            <a href="javascript:void(0);" class="avatar-text avatar-sm"
-                                                data-bs-toggle="dropdown" data-bs-offset="25, 25">
-                                                <div data-bs-toggle="tooltip" title="Options">
-                                                    <i class="feather-more-vertical"></i>
-                                                </div>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a href="javascript:void(0);" class="dropdown-item"><i
-                                                        class="feather-at-sign"></i>New</a>
-                                                <a href="javascript:void(0);" class="dropdown-item"><i
-                                                        class="feather-calendar"></i>Event</a>
-                                                <a href="javascript:void(0);" class="dropdown-item"><i
-                                                        class="feather-bell"></i>Snoozed</a>
-                                                <a href="javascript:void(0);" class="dropdown-item"><i
-                                                        class="feather-trash-2"></i>Deleted</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a href="javascript:void(0);" class="dropdown-item"><i
-                                                        class="feather-settings"></i>Settings</a>
-                                                <a href="javascript:void(0);" class="dropdown-item"><i
-                                                        class="feather-life-buoy"></i>Tips & Tricks</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body p-0">
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div class="hstack gap-3">
-                                                            <div class="avatar-image avatar-lg rounded">
-                                                                <img class="img-fluid" src="assets/images/gallery/1.png" alt="">
-                                                            </div>
-                                                            <div>
-                                                                <a href="javascript:void(0);" class="d-block">Headphones JBL</a>
-                                                                <span class="fs-12 text-muted">Electronics </span>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>$205</td>
-                                                    <td class="text-end">5 sold</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="hstack gap-3">
-                                                            <div class="avatar-image avatar-lg rounded">
-                                                                <img class="img-fluid" src="assets/images/gallery/2.png" alt="">
-                                                            </div>
-                                                            <div>
-                                                                <a href="javascript:void(0);" class="d-block">Smart watch</a>
-                                                                <span class="fs-12 text-muted">Electronics </span>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>$550</td>
-                                                    <td class="text-end">7 sold</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="hstack gap-3">
-                                                            <div class="avatar-image avatar-lg rounded">
-                                                                <img class="img-fluid" src="assets/images/gallery/3.png" alt="">
-                                                            </div>
-                                                            <div>
-                                                                <a href="javascript:void(0);" class="d-block">Hear Bud 202</a>
-                                                                <span class="fs-12 text-muted">Electronics </span>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>$350</td>
-                                                    <td class="text-end">6 sold</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="hstack gap-3">
-                                                            <div class="avatar-image avatar-lg rounded">
-                                                                <img class="img-fluid" src="assets/images/gallery/4.png" alt="">
-                                                            </div>
-                                                            <div>
-                                                                <a href="javascript:void(0);" class="d-block">iPhone 14 Pro
-                                                                    Max</a>
-                                                                <span class="fs-12 text-muted">Electronics </span>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>$600</td>
-                                                    <td class="text-end">4 sold</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="hstack gap-3">
-                                                            <div class="avatar-image avatar-lg rounded">
-                                                                <img class="img-fluid" src="assets/images/gallery/5.png" alt="">
-                                                            </div>
-                                                            <div>
-                                                                <a href="javascript:void(0);" class="d-block">Canon DSLR
-                                                                    1230</a>
-                                                                <span class="fs-12 text-muted">Electronics </span>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>$920</td>
-                                                    <td class="text-end">5 sold</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <a href="javascript:void(0);" class="card-footer fs-11 fw-bold text-uppercase text-center">More
-                                    Products</a>
-                            </div>
-                        </div> -->
                 </div>
             </div>
             <!-- [ Main Content ] end -->

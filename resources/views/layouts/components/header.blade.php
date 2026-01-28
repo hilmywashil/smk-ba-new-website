@@ -60,7 +60,11 @@
             <li><a href="#">Dropdown 4</a></li>
           </ul>
         </li>
-        <li><a href="contact.html">Kontak</a></li>
+        <li>
+          <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">
+            Kontak
+          </a>
+        </li>
       </ul>
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
@@ -73,11 +77,11 @@
 
         <!-- button logout - optional -->
         <!-- <form action="{{ route('logout') }}" method="POST" class="d-inline">
-              @csrf
-              <button type="submit" class="btn-getstarted btn-logout">
-                Logout
-              </button>
-            </form> -->
+                  @csrf
+                  <button type="submit" class="btn-getstarted btn-logout">
+                    Logout
+                  </button>
+                </form> -->
       @endauth
     @else
       <a class="btn-getstarted" href="{{ route('login') }}">

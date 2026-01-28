@@ -41,7 +41,8 @@
                             </div>
                             <div class="post-info">
                                 <span><i class="bi bi-calendar4-week"></i> {{ $post->created_at->format('j F Y') }}</span>
-                                <span><i class="bi bi-chat-square-text"></i> 32 Comments</span>
+                                <span><i class="bi bi-tags"></i>Kategori:
+                                    {{ $post->category == 'news' ? 'Berita' : 'Kegiatan' }}</span>
                             </div>
                         </div>
                     </div>
@@ -59,7 +60,8 @@
                                         <li style="display:flex; align-items:flex-start; margin-bottom:8px;">
 
                                             <a href="{{ route('posts.show', $recentPost->slug) }}"
-                                                style="text-decoration:none; line-height:1.4; display:block; margin-bottom: 8px;" class="active">
+                                                style="text-decoration:none; line-height:1.4; display:block; margin-bottom: 8px;"
+                                                class="active">
                                                 {{ Str::limit($recentPost->title, 50) }}
                                             </a>
 
@@ -72,7 +74,7 @@
 
                         <div class="article-content">
                             <div class="content-section" id="introduction" data-aos="fade-up">
-                                {!! nl2br(e($post->content)) !!}
+                                {!! $post->content !!}
                             </div>
 
 
@@ -81,33 +83,42 @@
 
                     <div class="article-footer" data-aos="fade-up">
                         <div class="share-article">
-                            <h4>Bagikan Artikel Ini</h4>
+                            <h4>Bagikan Postingan Ini</h4>
                             <div class="share-buttons">
-                                <a href="#" class="share-button twitter">
-                                    <i class="bi bi-twitter-x"></i>
-                                    <span>Share on X</span>
+                                @php
+                                    $url = urlencode(request()->fullUrl()); // URL post sekarang
+                                    $title = urlencode($post->title);       // Judul post
+                                @endphp
+
+                                <!-- WhatsApp -->
+                                <a href="https://api.whatsapp.com/send?text={{ $title }}%20{{ $url }}"
+                                    class="share-button whatsapp" target="_blank">
+                                    <i class="bi bi-whatsapp"></i>
+                                    <span>Bagikan di WhatsApp</span>
                                 </a>
-                                <a href="#" class="share-button facebook">
+
+                                <!-- Facebook -->
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ $url }}"
+                                    class="share-button facebook" target="_blank">
                                     <i class="bi bi-facebook"></i>
-                                    <span>Share on Facebook</span>
+                                    <span>Bagikan di Facebook</span>
                                 </a>
-                                <a href="#" class="share-button linkedin">
+
+                                <!-- X/Twitter -->
+                                <a href="https://twitter.com/intent/tweet?url={{ $url }}&text={{ $title }}"
+                                    class="share-button twitter" target="_blank">
+                                    <i class="bi bi-twitter-x"></i>
+                                    <span>Bagikan di X</span>
+                                </a>
+
+                                <!-- LinkedIn -->
+                                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ $url }}"
+                                    class="share-button linkedin" target="_blank">
                                     <i class="bi bi-linkedin"></i>
-                                    <span>Share on LinkedIn</span>
+                                    <span>Bagikan di LinkedIn</span>
                                 </a>
                             </div>
                         </div>
-
-                        <!-- <div class="article-tags">
-                                    <h4>Related Topics</h4>
-                                    <div class="tags">
-                                        <a href="#" class="tag">UI Design</a>
-                                        <a href="#" class="tag">User Experience</a>
-                                        <a href="#" class="tag">Design Trends</a>
-                                        <a href="#" class="tag">Innovation</a>
-                                        <a href="#" class="tag">Technology</a>
-                                    </div>
-                                </div> -->
                     </div>
 
                 </article>

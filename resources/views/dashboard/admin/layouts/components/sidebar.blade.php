@@ -7,7 +7,7 @@
             <a href="{{ route('home') }}" class="b-brand">
                 <!-- ========   change your logo hear   ============ -->
                 <img src="{{ asset('admin/assets/images/logo-full.png') }}" alt="" class="logo logo-lg" style="width: 200px !important"/>
-                <img src="{{ asset('admin/assets/images/logo-abbr.png') }}" alt="" class="logo logo-sm" />
+                <img src="{{ asset('assets/img/logo.png') }}" alt="" class="logo logo-sm" />
             </a>
         </div>
         <div class="navbar-content">
@@ -18,7 +18,7 @@
                 <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-airplay"></i></span>
-                        <span class="nxl-mtext">Dashboards</span><span class="nxl-arrow"><i
+                        <span class="nxl-mtext">Dasbor</span><span class="nxl-arrow"><i
                                 class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
@@ -27,12 +27,12 @@
                 </li>
                 <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-cast"></i></span>
-                        <span class="nxl-mtext">Konten</span><span class="nxl-arrow"><i
+                        <span class="nxl-micon"><i class="feather-file-text"></i></span>
+                        <span class="nxl-mtext">Kelola Konten</span><span class="nxl-arrow"><i
                                 class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.berita') }}">Berita & Kegiatan</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.berita') }}">Postingan</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="reports-leads.html">Leads Report</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="reports-project.html">Project Report</a></li>
                         <li class="nxl-item"><a class="nxl-link" href="reports-timesheets.html">Timesheets Report</a>

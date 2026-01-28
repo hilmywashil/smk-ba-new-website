@@ -5929,6 +5929,44 @@ section,
 /*--------------------------------------------------------------
 # Blog Posts Section
 --------------------------------------------------------------*/
+
+/* OVERRIDE ARTICLE DETAIL */
+.article-content {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #374151;
+}
+
+.article-content p {
+  margin-bottom: 1rem;
+}
+
+.article-content h2,
+.article-content h3,
+.article-content h4 {
+  margin: 1.5rem 0 0.75rem;
+  font-weight: 600;
+}
+
+.article-content blockquote,
+.article-content figure.quote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid #3b82f6;
+  background: #f8fafc;
+  font-style: italic;
+  color: #374151;
+}
+
+.article-content cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+/* END OVERRIDE ARTICLE DETAIL */
+
+
 .blog-posts {
   padding-top: 60px;
   padding-bottom: 62px;
@@ -6613,8 +6651,12 @@ section,
   transform: translateY(-2px);
 }
 
+.blog-details .article-footer .share-article .share-buttons .share-button.whatsapp:hover {
+  background: #25D366;
+}
+
 .blog-details .article-footer .share-article .share-buttons .share-button.twitter:hover {
-  background: #1DA1F2;
+  background: #080808;
 }
 
 .blog-details .article-footer .share-article .share-buttons .share-button.facebook:hover {

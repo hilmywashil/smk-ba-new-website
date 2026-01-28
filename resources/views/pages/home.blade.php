@@ -18,22 +18,22 @@
                                 <p>Menuai Risalah, Menggapai Peradaban.</p>
 
                                 <!-- <div class="hero-stats">
-                                    <div class="stat-item">
-                                        <span class="number purecounter" data-purecounter-start="0"
-                                            data-purecounter-end="100" data-purecounter-duration="2"></span>
-                                        <span class="label">Siswa/i</span>
-                                    </div>
-                                    <div class="stat-item">
-                                        <span class="number purecounter" data-purecounter-start="0"
-                                            data-purecounter-end="1000" data-purecounter-duration="2"></span>
-                                        <span class="label">Lebih Alumni</span>
-                                    </div>
-                                    <div class="stat-item">
-                                        <span class="number purecounter" data-purecounter-start="0"
-                                            data-purecounter-end="12" data-purecounter-duration="2"></span>
-                                        <span class="label">Tahun Berdiri</span>
-                                    </div>
-                                </div> -->
+                                            <div class="stat-item">
+                                                <span class="number purecounter" data-purecounter-start="0"
+                                                    data-purecounter-end="100" data-purecounter-duration="2"></span>
+                                                <span class="label">Siswa/i</span>
+                                            </div>
+                                            <div class="stat-item">
+                                                <span class="number purecounter" data-purecounter-start="0"
+                                                    data-purecounter-end="1000" data-purecounter-duration="2"></span>
+                                                <span class="label">Lebih Alumni</span>
+                                            </div>
+                                            <div class="stat-item">
+                                                <span class="number purecounter" data-purecounter-start="0"
+                                                    data-purecounter-end="12" data-purecounter-duration="2"></span>
+                                                <span class="label">Tahun Berdiri</span>
+                                            </div>
+                                        </div> -->
 
                                 <div class="hero-buttons">
                                     <a href="#courses" class="btn btn-primary">Tentang Kami</a>
@@ -61,14 +61,14 @@
                                     </div>
 
                                     <!-- <div class="course-card" data-aos="fade-up" data-aos-delay="400">
-                                            <div class="card-icon">
-                                                <i class="bi bi-palette"></i>
-                                            </div>
-                                            <div class="card-content">
-                                                <h6>UI/UX Design</h6>
-                                                <span>1,890 Students</span>
-                                            </div>
-                                        </div> -->
+                                                    <div class="card-icon">
+                                                        <i class="bi bi-palette"></i>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <h6>UI/UX Design</h6>
+                                                        <span>1,890 Students</span>
+                                                    </div>
+                                                </div> -->
 
                                     <div class="course-card" data-aos="fade-up" data-aos-delay="500">
                                         <div class="card-icon">
@@ -534,29 +534,29 @@
                         <div class="testimonials-container">
                             <div class="swiper testimonials-slider init-swiper" data-aos="fade-up" data-aos-delay="400">
                                 <script type="application/json" class="swiper-config">
-                          {
-                            "loop": true,
-                            "speed": 600,
-                            "autoplay": {
-                              "delay": 5000
-                            },
-                            "slidesPerView": 1,
-                            "spaceBetween": 30,
-                            "pagination": {
-                              "el": ".swiper-pagination",
-                              "type": "bullets",
-                              "clickable": true
-                            },
-                            "breakpoints": {
-                              "768": {
-                                "slidesPerView": 2
-                              },
-                              "992": {
-                                "slidesPerView": 3
-                              }
-                            }
-                          }
-                        </script>
+                                  {
+                                    "loop": true,
+                                    "speed": 600,
+                                    "autoplay": {
+                                      "delay": 5000
+                                    },
+                                    "slidesPerView": 1,
+                                    "spaceBetween": 30,
+                                    "pagination": {
+                                      "el": ".swiper-pagination",
+                                      "type": "bullets",
+                                      "clickable": true
+                                    },
+                                    "breakpoints": {
+                                      "768": {
+                                        "slidesPerView": 2
+                                      },
+                                      "992": {
+                                        "slidesPerView": 3
+                                      }
+                                    }
+                                  }
+                                </script>
 
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
@@ -694,70 +694,39 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Recent Blog Posts</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+                <h2>Berita & Kegiatan Terbaru</h2>
+                <p>Ikuti perkembangan terkini dan informasi seputar kegiatan di SMK IT Baitul Aziz</p>
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
 
                 <div class="row gy-4">
 
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card">
-                            <div class="card-top d-flex align-items-center">
-                                <img src="assets/img/person/person-f-12.webp" alt="Author" class="rounded-circle me-2">
-                                <span class="author-name">By Andy glamer</span>
-                                <span class="ms-auto likes"><i class="bi bi-heart"></i> 65</span>
+                    @forelse($recentBlog as $post)
+                        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card">
+                                <div class="card-top d-flex align-items-center">
+                                    <img src="assets/img/person/person-f-12.webp" alt="Author" class="rounded-circle me-2">
+                                    <span class="author-name">Oleh {{ $post->author->name }}</span>
+                                    <span class="ms-auto likes">{{ $post->category == 'news' ? 'Berita' : 'Kegiatan' }}</span>
+                                </div>
+                                <div class="card-img-wrapper">
+                                    <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title"><a
+                                            href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a></h5>
+                                    <p class="card-text">
+                                    <p class="card-text">
+                                        {{ Str::limit(strip_tags($post->content), 100) }}
+                                    </p>
+                                    </p>
+                                </div>
                             </div>
-                            <div class="card-img-wrapper">
-                                <img src="assets/img/blog/blog-post-1.webp" alt="Post Image">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="blog-details.html">Sed ut perspiciatis unde omnis iste
-                                        natus</a></h5>
-                                <p class="card-text">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                                    aut fugit, sed quia consequuntur magni dolores eos qui ratione...</p>
-                            </div>
-                        </div>
-                    </div><!-- End Post Item Card -->
-
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="card position-relative">
-                            <div class="card-top d-flex align-items-center">
-                                <img src="assets/img/person/person-f-13.webp" alt="Author" class="rounded-circle me-2">
-                                <span class="author-name">By Den viliamson</span>
-                                <span class="ms-auto likes"><i class="bi bi-heart"></i> 35</span>
-                            </div>
-                            <div class="card-img-wrapper">
-                                <img src="assets/img/blog/blog-post-2.webp" alt="Post Image">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="blog-details.html">Nemo enim ipsam voluptatem quia
-                                        voluptas sit</a></h5>
-                                <p class="card-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                                    blanditiis praesentium voluptatum deleniti atque corrupti quos...</p>
-                            </div>
-                        </div>
-                    </div><!-- End Post Item Card -->
-
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-                        <div class="card">
-                            <div class="card-top d-flex align-items-center">
-                                <img src="assets/img/person/person-m-10.webp" alt="Author" class="rounded-circle me-2">
-                                <span class="author-name">By Jones robbert</span>
-                                <span class="ms-auto likes"><i class="bi bi-heart"></i> 58</span>
-                            </div>
-                            <div class="card-img-wrapper">
-                                <img src="assets/img/blog/blog-post-3.webp" alt="Post Image">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="blog-details.html">Ut enim ad minima veniam, quis
-                                        nostrum exercitationem</a></h5>
-                                <p class="card-text">Quis autem vel eum iure reprehenderit qui in ea voluptate velit
-                                    esse quam nihil molestiae consequatur, vel illum qui dolorem...</p>
-                            </div>
-                        </div>
-                    </div><!-- End Post Item Card -->
+                        </div><!-- End Post Item Card -->
+                    @empty
+                        <p>No recent blog posts available.</p>
+                    @endforelse
 
                 </div>
 

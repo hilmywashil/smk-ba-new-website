@@ -67,28 +67,28 @@
                     <a class="nxl-head-link me-3" data-bs-toggle="dropdown" href="#" role="button"
                         data-bs-auto-close="outside">
                         <i class="feather-bell"></i>
-                        <span class="badge bg-danger nxl-h-badge">3</span>
+                        <span class="badge bg-danger nxl-h-badge">{{ $unreadMessages->count() }}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end nxl-h-dropdown nxl-notifications-menu">
                         <div class="d-flex justify-content-between align-items-center notifications-head">
-                            <h6 class="fw-bold text-dark mb-0">Notifications</h6>
-                            <a href="javascript:void(0);" class="fs-11 text-success text-end ms-auto"
+                            <h6 class="fw-bold text-dark mb-0">Pesan Terbaru (Belum dibaca)</h6>
+                            <!-- <a href="javascript:void(0);" class="fs-11 text-success text-end ms-auto"
                                 data-bs-toggle="tooltip" title="Make as Read">
                                 <i class="feather-check"></i>
                                 <span>Make as Read</span>
-                            </a>
+                            </a> -->
                         </div>
-                        <div class="notifications-item">
-                            <div class="notifications-desc">
-                                <a href="javascript:void(0);" class="font-body text-truncate-2-line"> <span
-                                        class="fw-semibold text-dark">Malanie Hanvey</span> We should talk about that at
-                                    lunch!</a>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="notifications-date text-muted border-bottom border-bottom-dashed">2
-                                        minutes ago</div>
+                        @foreach ($unreadMessages as $messages)
+                            <div class="notifications-item">
+                                <div class="notifications-desc">
+                                    <a href="javascript:void(0);" class="font-body text-truncate-2-line"> <span
+                                            class="fw-semibold text-dark">{{ $messages->name }}</span> {{ $messages->subject }}</a>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="notifications-date text-muted border-bottom border-bottom-dashed">{{ $messages->created_at->diffForHumans() }}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                         <div class="text-center notifications-footer">
                             <a href="javascript:void(0);" class="fs-13 fw-semibold text-dark">All Notifications</a>
                         </div>
