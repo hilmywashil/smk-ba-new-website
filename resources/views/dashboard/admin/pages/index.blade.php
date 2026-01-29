@@ -102,8 +102,8 @@
                             <div class="card-body">
                                 <div class="hstack justify-content-between mb-4 pb-">
                                     <div>
-                                        <h5 class="mb-1">Statistik</h5>
-                                        <span class="fs-12 text-muted">Email Campaign Reports</span>
+                                        <h5 class="mb-1">Statistik Konten</h5>
+                                        <span class="fs-12 text-muted">Data Konten Website</span>
                                     </div>
                                     <a href="javascript:void(0);" class="btn btn-light-brand">View Alls</a>
                                 </div>
@@ -133,11 +133,94 @@
                                     <div class="col-xxl-2 col-lg-4 col-md-6">
                                         <div class="card stretch stretch-full border border-dashed border-gray-5">
                                             <div class="card-body rounded-3 text-center">
-                                                <i class="bi bi-envelope-check fs-3 text-success"></i>
-                                                <div class="fs-4 fw-bolder text-dark mt-3 mb-1">20,354</div>
+                                                <i class="bi bi-envelope-slash fs-3 text-danger"></i>
+                                                <div class="fs-4 fw-bolder text-dark mt-3 mb-1">{{ $unreadMessagesCount }}</div>
                                                 <p
                                                     class="fs-12 fw-medium text-muted text-spacing-1 mb-0 text-truncate-1-line">
-                                                    Emails Delivered</p>
+                                                    Belum Dibaca</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-2 col-lg-4 col-md-6">
+                                        <div class="card stretch stretch-full border border-dashed border-gray-5">
+                                            <div class="card-body rounded-3 text-center">
+                                                <i class="bi bi-envelope-open fs-3 text-indigo"></i>
+                                                <div class="fs-4 fw-bolder text-dark mt-3 mb-1">12,422</div>
+                                                <p
+                                                    class="fs-12 fw-medium text-muted text-spacing-1 mb-0 text-truncate-1-line">
+                                                    Emails Opened</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-2 col-lg-4 col-md-6">
+                                        <div class="card stretch stretch-full border border-dashed border-gray-5">
+                                            <div class="card-body rounded-3 text-center">
+                                                <i class="bi bi-envelope-heart fs-3 text-teal"></i>
+                                                <div class="fs-4 fw-bolder text-dark mt-3 mb-1">6,248</div>
+                                                <p
+                                                    class="fs-12 fw-medium text-muted text-spacing-1 mb-0 text-truncate-1-line">
+                                                    Emails Clicked</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-2 col-lg-4 col-md-6">
+                                        <div class="card stretch stretch-full border border-dashed border-gray-5">
+                                            <div class="card-body rounded-3 text-center">
+                                                <i class="bi bi-envelope-slash fs-3 text-danger"></i>
+                                                <div class="fs-4 fw-bolder text-dark mt-3 mb-1">2,047</div>
+                                                <p
+                                                    class="fs-12 fw-medium text-muted text-spacing-1 mb-0 text-truncate-1-line">
+                                                    Emails Bounce</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [Mini Card] end -->
+                    <!-- [Mini Card] start -->
+                    <div class="col-12">
+                        <div class="card stretch stretch-full">
+                            <div class="card-body">
+                                <div class="hstack justify-content-between mb-4 pb-">
+                                    <div>
+                                        <h5 class="mb-1">Statistik Pesan</h5>
+                                        <span class="fs-12 text-muted">Data Pesan Masuk</span>
+                                    </div>
+                                    <a href="javascript:void(0);" class="btn btn-light-brand">View Alls</a>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xxl-2 col-lg-4 col-md-6">
+                                        <div class="card stretch stretch-full border border-dashed border-gray-5">
+                                            <div class="card-body rounded-3 text-center">
+                                                <i class="bi bi-envelope-slash fs-3 text-danger"></i>
+                                                <div class="fs-4 fw-bolder text-dark mt-3 mb-1">{{ $unreadMessagesCount }}</div>
+                                                <p
+                                                    class="fs-12 fw-medium text-muted text-spacing-1 mb-0 text-truncate-1-line">
+                                                    Belum Dibaca</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-2 col-lg-4 col-md-6">
+                                        <div class="card stretch stretch-full border border-dashed border-gray-5">
+                                            <div class="card-body rounded-3 text-center">
+                                                <i class="bi bi-envelope-check fs-3 text-success"></i>
+                                                <div class="fs-4 fw-bolder text-dark mt-3 mb-1">{{ $readMessagesCount }}</div>
+                                                <p
+                                                    class="fs-12 fw-medium text-muted text-spacing-1 mb-0 text-truncate-1-line">
+                                                    Dibaca</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-2 col-lg-4 col-md-6">
+                                        <div class="card stretch stretch-full border border-dashed border-gray-5">
+                                            <div class="card-body rounded-3 text-center">
+                                                <i class="bi bi-envelope-slash fs-3 text-danger"></i>
+                                                <div class="fs-4 fw-bolder text-dark mt-3 mb-1">{{ $unreadMessagesCount }}</div>
+                                                <p
+                                                    class="fs-12 fw-medium text-muted text-spacing-1 mb-0 text-truncate-1-line">
+                                                    Belum Dibaca</p>
                                             </div>
                                         </div>
                                     </div>

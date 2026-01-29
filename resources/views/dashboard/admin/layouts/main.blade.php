@@ -46,46 +46,6 @@
     <script src="{{ asset('admin/assets/js/analytics-init.min.js') }}"></script>
     <script src="{{ asset('admin/assets/js/theme-customizer-init.min.js') }}"></script>
 
-    @include('dashboard.admin.layouts.components.sweetalert')
-
-    <script>
-        const notyf = new Notyf({
-            position: { x: 'right', y: 'top' },
-            duration: 3000,
-            ripple: false,
-            dismissible: true
-        });
-
-        @if (session('success'))
-            notyf.success('{{ session('success') }}');
-        @endif
-
-        @if (session('error'))
-            notyf.error('{{ session('error') }}');
-        @endif
-    </script>
-
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#editor'), {
-                toolbar: [
-                    'heading', '|',
-                    'bold', 'italic', 'underline',
-                    '|',
-                    'link', 'bulletedList', 'numberedList',
-                    '|',
-                    'blockQuote', 'insertTable',
-                    '|',
-                    'undo', 'redo'
-                ]
-            })
-            .then(editor => {
-                window.editor = editor;
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
-
+    @include('dashboard.admin.layouts.components.script')
 
 </body>

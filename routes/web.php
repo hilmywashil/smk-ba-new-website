@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminMessageController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\DashboardController;
 
@@ -48,6 +49,16 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/dashboard/admin/post/{id}/edit', [AdminPostController::class, 'edit'])->name('admin.berita.edit');
     Route::put('/dashboard/admin/post/{id}', [AdminPostController::class, 'update'])->name('admin.berita.update');
     Route::delete('/dashboard/admin/post/{id}', [AdminPostController::class, 'destroy'])->name('admin.berita.destroy');
+
+    Route::get('/dashboard/admin/messages', [AdminMessageController::class, 'index'])->name('admin.messages');
+
+    //READ UNREAD
+    Route::post('/dashboard/admin/message/{id}/read', [AdminMessageController::class, 'markAsRead'])->name('admin.messages.read');
+    Route::post('dashboard/admin/message/{id}/unread', [AdminMessageController::class, 'markAsUnread'])->name('admin.messages.unread');
+
+    Route::delete('/dashboard/admin/message/{id}', [AdminMessageController::class, 'destroy'])->name('admin.messages.destroy');
+
+
 });
 
 // GURU ROUTES

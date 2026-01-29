@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
@@ -52,12 +54,19 @@ class AdminPostController extends Controller
         $data['slug'] = $slug;
 
         if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension();
 
-            $filename = $data['slug'] . '.' . $extension;
+            $manager = new ImageManager(new Driver());
 
-            $data['image'] = $file->storeAs('posts', $filename, 'public');
+            $image = $manager->read($request->file('image'));
+
+            $filename = $data['slug'] . '.webp';
+            $path = storage_path('app/public/posts/' . $filename);
+
+            $image->scaleDown(width: 1200);
+
+            $image->toWebp(80)->save($path);
+
+            $data['image'] = 'posts/' . $filename;
         }
 
         $data['author_id'] = Auth::id();
@@ -86,15 +95,26 @@ class AdminPostController extends Controller
             'content' => 'required|string',
             'category' => 'required|in:news,activities',
             'status' => 'required|in:draft,published',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120',
         ]);
 
         if ($request->hasFile('image')) {
+
             if ($post->image && Storage::disk('public')->exists($post->image)) {
                 Storage::disk('public')->delete($post->image);
             }
 
-            $data['image'] = $request->file('image')->store('posts', 'public');
+            $manager = new ImageManager(new Driver());
+            $image = $manager->read($request->file('image'));
+
+            $filename = $data['slug'] . '.webp';
+            $path = storage_path('app/public/posts/' . $filename);
+
+            $image->scaleDown(width: 1200);
+
+            $image->toWebp(80)->save($path);
+
+            $data['image'] = 'posts/' . $filename;
         }
 
         $post->update($data);

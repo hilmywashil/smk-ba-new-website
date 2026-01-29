@@ -1,6 +1,6 @@
 @extends('dashboard.admin.layouts.main')
 
-@section('title', 'Berita & Kegiatan - Admin SMK IT Baitul Aziz')
+@section('title', 'Tambah Postingan - Admin SMK IT Baitul Aziz')
 
 @section('content')
 
@@ -27,7 +27,7 @@
                     <div class="col-12">
                         <div class="card stretch stretch-full">
                             <div class="card-header">
-                                <h5 class="card-title">Tambah Berita & Kegiatan</h5>
+                                <h5 class="card-title">Tambah Postingan</h5>
                             </div>
                             <div class="card-body custom-card-action p-0">
                                 <div class="table-responsive">
@@ -38,11 +38,23 @@
                                         {{-- Image --}}
                                         <div class="mb-3">
                                             <label class="form-label">Gambar</label>
-                                            <input type="file" name="image" id="image" class="form-control mb-2"
-                                                accept="image/*">
 
-                                            <img id="preview" class="img-fluid rounded d-none" style="max-height: 250px;">
+                                            <div class="d-flex align-items-center gap-2">
+                                                <button type="button" class="btn btn-primary" id="btnUpload">
+                                                    <i class="bi bi-upload me-2"></i> Upload Gambar
+                                                </button>
+
+                                                <span id="fileName" class="text-muted fs-12">
+                                                    Belum ada file dipilih
+                                                </span>
+                                            </div>
+
+                                            <input type="file" name="image" id="image" class="d-none" accept="image/*">
+
+                                            <img id="preview" class="img-fluid rounded d-none mt-3"
+                                                style="max-height: 250px;">
                                         </div>
+
 
                                         {{-- Title --}}
                                         <div class="mb-3">
@@ -105,43 +117,5 @@
             </div>
         </div>
     </main>
-    <script>
-        const MAX_SIZE = 5 * 1024 * 1024;
-
-        const imageInput = document.getElementById('image');
-        const preview = document.getElementById('preview');
-        const submitBtn = document.querySelector('button[type="submit"]');
-
-        imageInput.addEventListener('change', function (e) {
-            const file = e.target.files[0];
-            if (!file) return;
-
-            if (file.size > MAX_SIZE) {
-                notyf.error('Ukuran gambar maksimal 5 MB');
-
-                imageInput.value = '';
-                preview.classList.add('d-none');
-                submitBtn.disabled = true;
-                return;
-            }
-
-            submitBtn.disabled = false;
-            preview.src = URL.createObjectURL(file);
-            preview.classList.remove('d-none');
-        });
-
-        document.getElementById('title').addEventListener('input', function () {
-            const title = this.value;
-
-            const slug = title
-                .toLowerCase()
-                .trim()
-                .replace(/[^a-z0-9\s-]/g, '')
-                .replace(/\s+/g, '-')
-                .replace(/-+/g, '-');
-
-            document.getElementById('slug').value = slug;
-        });
-    </script>
 
 @endsection

@@ -10,11 +10,11 @@
             <div class="page-header">
                 <div class="page-header-left d-flex align-items-center">
                     <div class="page-header-title">
-                        <h5 class="m-b-10">Kelola Konten</h5>
+                        <h5 class="m-b-10">Inbox</h5>
                     </div>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Beranda</a></li>
-                        <li class="breadcrumb-item">Postingan</li>
+                        <li class="breadcrumb-item">Pesan Masuk</li>
                     </ul>
                 </div>
                 <div class="page-header-right ms-auto">
@@ -34,43 +34,56 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end p-3" style="min-width: 220px;">
-                                    <form action="{{ route('admin.berita') }}" method="GET"
+                                    <form action="{{ route('admin.messages') }}" method="GET"
                                         class="d-flex flex-column gap-2">
-                                        <div class="mb-2">
-                                            <label for="category" class="form-label fs-12 mb-1">Kategori</label>
-                                            <select name="category" id="category" class="form-select form-select-sm">
-                                                <option value="">Semua Kategori</option>
-                                                <option value="news" {{ request('category') == 'news' ? 'selected' : '' }}>
-                                                    Berita</option>
-                                                <option value="activities" {{ request('category') == 'activities' ? 'selected' : '' }}>Kegiatan</option>
-                                            </select>
-                                        </div>
 
                                         <div class="mb-2">
                                             <label for="status" class="form-label fs-12 mb-1">Status</label>
                                             <select name="status" id="status" class="form-select form-select-sm">
                                                 <option value="">Semua Status</option>
-                                                <option value="draft" {{ request('status') == 'draft' ? 'selected' : '' }}>
-                                                    Draf</option>
-                                                <option value="published" {{ request('status') == 'published' ? 'selected' : '' }}>Publikasi</option>
+                                                <option value="unread" {{ request('status') == 'unread' ? 'selected' : '' }}>
+                                                    Belum Dibaca</option>
+                                                <option value="read" {{ request('status') == 'read' ? 'selected' : '' }}>Sudah
+                                                    Dibaca</option>
                                             </select>
+                                        </div>
+
+                                        <div class="mb-2">
+                                            <label for="sender" class="form-label fs-12 mb-1">Pengirim</label>
+                                            <input type="text" name="sender" id="sender"
+                                                class="form-control form-control-sm" value="{{ request('sender') }}"
+                                                placeholder="Nama pengirim">
+                                        </div>
+
+                                        <div class="mb-2">
+                                            <label for="from" class="form-label fs-12 mb-1">Dari Tanggal</label>
+                                            <input type="date" name="from" id="from" class="form-control form-control-sm"
+                                                value="{{ request('from') }}">
+                                        </div>
+
+                                        <div class="mb-2">
+                                            <label for="to" class="form-label fs-12 mb-1">Sampai Tanggal</label>
+                                            <input type="date" name="to" id="to" class="form-control form-control-sm"
+                                                value="{{ request('to') }}">
                                         </div>
 
                                         <button type="submit" class="btn btn-md btn-primary mt-2">
                                             <i class="feather-filter me-1"></i>Filter
                                         </button>
-                                        <a href="{{ route('admin.berita') }}"
+                                        <a href="{{ route('admin.messages') }}"
                                             class="btn btn-md btn-secondary mt-1 text-center">
                                             <i class="feather-rotate-ccw me-1"></i> Reset
                                         </a>
+
                                     </form>
                                 </div>
+
                             </div>
 
-                            <a href="{{ route('admin.berita.create') }}" class="btn btn-md btn-primary">
+                            <!-- <a href="{{ route('admin.berita.create') }}" class="btn btn-md btn-primary">
                                 <i class="feather-plus me-2"></i>
                                 <span>Tambah Postingan</span>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                     <div class="d-md-none d-flex align-items-center">
@@ -84,77 +97,74 @@
             <!-- [ Main Content ] start -->
             <div class="main-content">
                 <div class="row">
-                    <!-- [Leads] start -->
+                    <!-- [Support Inbox] start -->
                     <div class="col-12">
                         <div class="card stretch stretch-full">
                             <div class="card-header">
-                                <h5 class="card-title">Postingan</h5>
+                                <h5 class="card-title">Pesan Masuk</h5>
                             </div>
                             <div class="card-body custom-card-action p-0">
                                 <div class="table-responsive">
-                                    <table class="table table-hover mb-0">
+                                    <table class="table">
                                         <thead>
-                                            <tr class="border-b">
-                                                <th>Gambar</th>
-                                                <th scope="row">Judul</th>
-                                                <th>Kategori</th>
-                                                <th>Tanggal Dibuat</th>
-                                                <th>Terakhir Di Update</th>
-                                                <th>Status</th>
-                                                <th class="text-end">Aksi</th>
+                                            <tr>
+                                                <th scope="col">Nama Pengirim & Subjek</th>
+                                                <th scope="col">Email Pengirim</th>
+                                                <th scope="col">Pesan Singkat</th>
+                                                <th scope="col">Dikirim</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @forelse ($posts as $post)
+                                            @forelse($messages as $msg)
                                                 <tr>
-                                                    <td class="align-middle">
-                                                        <img src="{{ asset('storage/' . $post->image) }}"
-                                                            alt="{{ $post->title }}" class="rounded object-fit-cover" width="48"
-                                                            height="48" role="button" data-bs-toggle="modal"
-                                                            data-bs-target="#imagePreviewModal"
-                                                            data-image="{{ asset('storage/' . $post->image) }}">
-                                                    </td>
-
                                                     <td>
-                                                        <div class="d-flex align-items-center gap-3">
-                                                            <a href="{{ route('posts.show', $post->slug) }}" target="_blank"
-                                                                data-bs-toggle="tooltip" title="{{ $post->title }}">
-                                                                <span
-                                                                    class="d-block">{{ Str::limit(strip_tags($post->title), 40) }}</span>
-                                                            </a>
+                                                        <div class="hstack gap-3">
+                                                            <div>
+                                                                <a href="javascript:void(0);"
+                                                                    class="d-block">{{ $msg->name }}</a>
+                                                                <span class="fs-12 text-muted">{{ Str::limit(strip_tags($msg->subject), 30) }}</span>
+                                                            </div>
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        {{ $post->category === 'news' ? 'Berita' : 'Kegiatan' }}
+                                                        {{ $msg->email }}
                                                     </td>
-
-                                                    <td>{{ $post->created_at->format('d M Y') }}</td>
-                                                    <td>{{ $post->updated_at->format('d M Y') }}</td>
-
+                                                    <td>
+                                                        {{ Str::limit(strip_tags($msg->message), 30) }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $msg->created_at->diffForHumans() }}
+                                                    </td>
                                                     <td>
                                                         <span
-                                                            class="badge                                                                                                                                                                                            {{ $post->status === 'published' ? 'bg-soft-success text-success' : 'bg-gray-200 text-dark' }}">
-                                                            {{ $post->status === 'published' ? 'PUBLIKASI' : 'DRAF' }}
+                                                            class="badge {{ $msg->status === 'read' ? 'bg-soft-success text-success' : 'bg-gray-200 text-dark' }}">
+                                                            {{ $msg->status === 'read' ? 'DIBACA' : 'BELUM DIBACA' }}
                                                         </span>
                                                     </td>
-                                                    <td class="text-end">
+                                                    <td>
                                                         <div class="d-inline-flex gap-2">
-                                                            <a href="{{ route('admin.berita.edit', $post->id) }}"
-                                                                class="btn btn-sm btn-warning">
-                                                                <i class="bi bi-pencil"></i>
+                                                            <a href="javascript:void(0);"
+                                                                class="btn btn-sm btn-warning btn-view-message"
+                                                                data-bs-toggle="modal" data-bs-target="#viewMessageModal"
+                                                                data-id="{{ $msg->id }}" data-name="{{ $msg->name }}"
+                                                                data-email="{{ $msg->email }}"
+                                                                data-created="{{ $msg->created_at->format('d M Y H:i') }} - {{ $msg->created_at->diffForHumans() }}"
+                                                                data-status="{{ $msg->status }}"
+                                                                data-message="{{ $msg->message }}">
+                                                                <i class="bi bi-eye"></i>
                                                             </a>
 
                                                             <button type="button" class="btn btn-sm btn-danger btn-delete"
-                                                                data-bs-toggle="modal" data-bs-target="#deleteModal"
-                                                                data-url="{{ route('admin.berita.destroy', $post->id) }}"
-                                                                data-title="{{ $post->title }}">
-
+                                                                data-bs-toggle="modal" data-bs-target="#deleteMessageModal"
+                                                                data-url="{{ route('admin.messages.destroy', $msg->id) }}"
+                                                                data-sender="{{ $msg->name }}">
                                                                 <i class="bi bi-trash"></i>
                                                             </button>
-
+                                                            </button>
                                                         </div>
                                                     </td>
-
                                                 </tr>
                                             @empty
                                                 <tr>
@@ -167,26 +177,26 @@
                                     </table>
                                 </div>
                             </div>
-                            @if ($posts->hasPages())
+                            @if ($messages->hasPages())
                                 <div class="card-footer">
                                     <ul class="list-unstyled d-flex align-items-center gap-2 mb-0 pagination-common-style">
 
-                                        <li class="{{ $posts->onFirstPage() ? 'disabled' : '' }}">
-                                            <a href="{{ $posts->previousPageUrl() ?? 'javascript:void(0);' }}">
+                                        <li class="{{ $messages->onFirstPage() ? 'disabled' : '' }}">
+                                            <a href="{{ $messages->previousPageUrl() ?? 'javascript:void(0);' }}">
                                                 <i class="bi bi-arrow-left"></i>
                                             </a>
                                         </li>
 
-                                        @foreach ($posts->links()->elements[0] as $page => $url)
+                                        @foreach ($messages->links()->elements[0] as $page => $url)
                                             <li>
-                                                <a href="{{ $url }}" class="{{ $page == $posts->currentPage() ? 'active' : '' }}">
+                                                <a href="{{ $url }}" class="{{ $page == $messages->currentPage() ? 'active' : '' }}">
                                                     {{ $page }}
                                                 </a>
                                             </li>
                                         @endforeach
 
-                                        <li class="{{ $posts->hasMorePages() ? '' : 'disabled' }}">
-                                            <a href="{{ $posts->nextPageUrl() ?? 'javascript:void(0);' }}">
+                                        <li class="{{ $messages->hasMorePages() ? '' : 'disabled' }}">
+                                            <a href="{{ $messages->nextPageUrl() ?? 'javascript:void(0);' }}">
                                                 <i class="bi bi-arrow-right"></i>
                                             </a>
                                         </li>
@@ -196,7 +206,7 @@
                             @endif
                         </div>
                     </div>
-                    <!-- [Leads] end -->
+                    <!-- [Support Inbox] end -->
                 </div>
             </div>
             <!-- [ Main Content ] end -->
@@ -214,22 +224,22 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="deleteMessageModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title text-danger">
                         <i class="bi bi-exclamation-triangle me-2"></i>
-                        KONFIRMASI HAPUS
+                        KONFIRMASI HAPUS PESAN
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
                 <div class="modal-body">
                     <p class="mb-0">
-                        "<strong id="deletePostTitle"></strong>"
-                    <p>akan dihapus. Anda yakin?</p>
+                        Pesan dari: "<strong id="deleteMessageSender"></strong>"
                     </p>
+                    <p>akan dihapus. Anda yakin?</p>
                     <small class="text-muted">Tindakan ini tidak bisa dibatalkan.</small>
                 </div>
 
@@ -238,7 +248,7 @@
                         Batal
                     </button>
 
-                    <form id="deleteForm" method="POST">
+                    <form id="deleteMessageForm" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">
@@ -246,6 +256,41 @@
                         </button>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="viewMessageModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detail Pesan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-unstyled mb-0">
+                        <li><strong>Nama:</strong> <span id="msgName"></span></li>
+                        <li><strong>Email:</strong> <span id="msgEmail"></span></li>
+                        <li><strong>Dikirim:</strong> <span id="msgCreatedAt"></span></li>
+                        <li><strong>Status:</strong> <span id="msgStatus"></span></li>
+                        <li class="mt-2"><strong>Pesan:</strong>
+                            <p id="msgContent"></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnCloseModal">Tutup &
+                        Refresh</button>
+
+                    <button type="button" class="btn btn-success" id="btnMarkRead" data-id="">
+                        Baca Pesan
+                    </button>
+
+                    <button type="button" class="btn btn-warning" id="btnMarkUnread" data-id="" style="display: none;">
+                        Tandai Belum Dibaca
+                    </button>
+                </div>
+
+
             </div>
         </div>
     </div>

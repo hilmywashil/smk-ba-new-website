@@ -71,26 +71,37 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-end nxl-h-dropdown nxl-notifications-menu">
                         <div class="d-flex justify-content-between align-items-center notifications-head">
-                            <h6 class="fw-bold text-dark mb-0">Pesan Terbaru (Belum dibaca)</h6>
+                            <h6 class="fw-bold text-dark mb-0">Pesan Terbaru - Belum Dibaca</h6>
                             <!-- <a href="javascript:void(0);" class="fs-11 text-success text-end ms-auto"
                                 data-bs-toggle="tooltip" title="Make as Read">
                                 <i class="feather-check"></i>
                                 <span>Make as Read</span>
                             </a> -->
                         </div>
-                        @foreach ($unreadMessages as $messages)
+                        @forelse ($unreadMessages as $messages)
                             <div class="notifications-item">
                                 <div class="notifications-desc">
                                     <a href="javascript:void(0);" class="font-body text-truncate-2-line"> <span
-                                            class="fw-semibold text-dark">{{ $messages->name }}</span> {{ $messages->subject }}</a>
+                                            class="fw-semibold text-dark">{{ $messages->name }}</span>
+                                        {{ $messages->subject }}</a>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <div class="notifications-date text-muted border-bottom border-bottom-dashed">{{ $messages->created_at->diffForHumans() }}</div>
+                                        <div class="notifications-date text-muted border-bottom border-bottom-dashed">
+                                            {{ $messages->created_at->diffForHumans() }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+                        @empty
+                            <div class="notifications-item">
+                                <div class="notifications-desc">
+                                    <a href="{{ route('admin.messages') }}" class="font-body text-truncate-2-line"> <span
+                                            class="fw-semibold text-dark">Tidak ada pesan terbaru</span>
+                                    </a>
+                                </div>
+                            </div>
+                        @endforelse
                         <div class="text-center notifications-footer">
-                            <a href="javascript:void(0);" class="fs-13 fw-semibold text-dark">All Notifications</a>
+                            <a href="{{ route('admin.messages') }}" class="fs-13 fw-semibold text-dark">Lihat Semua Pesan</a>
                         </div>
                     </div>
                 </div>
