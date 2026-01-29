@@ -24,6 +24,10 @@
     <!--! BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/css/theme.min.css') }}">
     <!--! END: Custom CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
     <!--! HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries !-->
     <!--! WARNING: Respond.js doesn"t work if you view the page via file: !-->
     <!--[if lt IE 9]>
@@ -89,7 +93,7 @@
                             </button>
                         </div>
                     </form>
-                    <div class="w-100 mt-5 text-center mx-auto">
+                    <!-- <div class="w-100 mt-5 text-center mx-auto">
                         <div class="mb-4 border-bottom position-relative"><span
                                 class="small py-1 px-3 text-uppercase text-muted bg-white position-absolute translate-middle">Atau</span>
                         </div>
@@ -107,7 +111,7 @@
                                 <i class="bi bi-github"></i>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="mt-5 text-muted">
                         <span> Belum punya akun?</span>
                         <a href="{{ route('register') }}" class="fw-bold">Buat Akun</a>
@@ -132,6 +136,23 @@
     <!--! BEGIN: Theme Customizer  !-->
     <script src="admin/assets/js/theme-customizer-init.min.js"></script>
     <!--! END: Theme Customizer !-->
+    <script>
+        const notyf = new Notyf({
+            position: { x: 'right', y: 'top' },
+            duration: 3000,
+            ripple: false,
+            dismissible: true
+        });
+
+        @if (session('success'))
+            notyf.success('{{ session('success') }}');
+        @endif
+
+        @if (session('error'))
+            notyf.error('{{ session('error') }}');
+        @endif
+    </script>
+
 </body>
 
 </html>

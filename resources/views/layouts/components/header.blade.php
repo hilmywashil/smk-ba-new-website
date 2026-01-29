@@ -2,7 +2,7 @@
   <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
     <a href="index.html" class="logo d-flex align-items-center me-auto">
-      <h1 class="sitename">Baitul Aziz</h1>
+      <h1 class="sitename">SMK IT Baitul Aziz</h1>
     </a>
 
     <nav id="navmenu" class="navmenu">
@@ -65,6 +65,11 @@
             Kontak
           </a>
         </li>
+        <li>
+          <a href="{{ route('pendaftaran') }}" class="{{ request()->routeIs('pendaftaran') ? 'active' : '' }}">
+            PPDB
+          </a>
+        </li>
       </ul>
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
@@ -85,7 +90,7 @@
       @endauth
     @else
       <a class="btn-getstarted" href="{{ route('login') }}">
-        Login
+        Masuk
       </a>
     @endauth
 

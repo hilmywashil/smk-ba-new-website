@@ -15,25 +15,26 @@
                         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="hero-text">
                                 <h1>SMK IT Baitul Aziz</h1>
-                                <p>Menuai Risalah, Menggapai Peradaban.</p>
+                                <p>Membentuk Generasi Unggul yang Berakhlak Mulia dan Terampil di Bidang Teknologi
+                                    Informasi.</p>
 
                                 <!-- <div class="hero-stats">
-                                            <div class="stat-item">
-                                                <span class="number purecounter" data-purecounter-start="0"
-                                                    data-purecounter-end="100" data-purecounter-duration="2"></span>
-                                                <span class="label">Siswa/i</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="number purecounter" data-purecounter-start="0"
-                                                    data-purecounter-end="1000" data-purecounter-duration="2"></span>
-                                                <span class="label">Lebih Alumni</span>
-                                            </div>
-                                            <div class="stat-item">
-                                                <span class="number purecounter" data-purecounter-start="0"
-                                                    data-purecounter-end="12" data-purecounter-duration="2"></span>
-                                                <span class="label">Tahun Berdiri</span>
-                                            </div>
-                                        </div> -->
+                                                                                                    <div class="stat-item">
+                                                                                                        <span class="number purecounter" data-purecounter-start="0"
+                                                                                                            data-purecounter-end="100" data-purecounter-duration="2"></span>
+                                                                                                        <span class="label">Siswa/i</span>
+                                                                                                    </div>
+                                                                                                    <div class="stat-item">
+                                                                                                        <span class="number purecounter" data-purecounter-start="0"
+                                                                                                            data-purecounter-end="1000" data-purecounter-duration="2"></span>
+                                                                                                        <span class="label">Lebih Alumni</span>
+                                                                                                    </div>
+                                                                                                    <div class="stat-item">
+                                                                                                        <span class="number purecounter" data-purecounter-start="0"
+                                                                                                            data-purecounter-end="12" data-purecounter-duration="2"></span>
+                                                                                                        <span class="label">Tahun Berdiri</span>
+                                                                                                    </div>
+                                                                                                </div> -->
 
                                 <div class="hero-buttons">
                                     <a href="#courses" class="btn btn-primary">Tentang Kami</a>
@@ -46,40 +47,41 @@
                         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                             <div class="hero-image">
                                 <div class="main-image">
-                                    <img src="assets/img/education/courses-13.webp" alt="Online Learning" class="img-fluid">
+                                    <img src="{{ asset('assets/img/bg/paskibra.jpg') }}" alt="Online Learning"
+                                        class="img-fluid">
                                 </div>
 
-                                <div class="floating-cards">
-                                    <div class="course-card" data-aos="fade-up" data-aos-delay="300">
-                                        <div class="card-icon">
-                                            <i class="bi bi-code-slash"></i>
-                                        </div>
-                                        <div class="card-content">
-                                            <h6>Rekayasa Perangkat Lunak</h6>
-                                            <span>Jurusan</span>
-                                        </div>
-                                    </div>
+                                <!-- <div class="floating-cards">
+                                                                                        <div class="course-card" data-aos="fade-up" data-aos-delay="300">
+                                                                                            <div class="card-icon">
+                                                                                                <i class="bi bi-code-slash"></i>
+                                                                                            </div>
+                                                                                            <div class="card-content">
+                                                                                                <h6>Rekayasa Perangkat Lunak</h6>
+                                                                                                <span>Jurusan</span>
+                                                                                            </div>
+                                                                                        </div>
 
-                                    <!-- <div class="course-card" data-aos="fade-up" data-aos-delay="400">
-                                                    <div class="card-icon">
-                                                        <i class="bi bi-palette"></i>
-                                                    </div>
-                                                    <div class="card-content">
-                                                        <h6>UI/UX Design</h6>
-                                                        <span>1,890 Students</span>
-                                                    </div>
-                                                </div> -->
+                                                                                        <div class="course-card" data-aos="fade-up" data-aos-delay="400">
+                                                                                            <div class="card-icon">
+                                                                                                <i class="bi bi-palette"></i>
+                                                                                            </div>
+                                                                                            <div class="card-content">
+                                                                                                <h6>UI/UX Design</h6>
+                                                                                                <span>1,890 Students</span>
+                                                                                            </div>
+                                                                                        </div>
 
-                                    <div class="course-card" data-aos="fade-up" data-aos-delay="500">
-                                        <div class="card-icon">
-                                            <i class="bi bi-joystick"></i>
-                                        </div>
-                                        <div class="card-content">
-                                            <h6>PPLG</h6>
-                                            <span>Jurusan</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                                                                        <div class="course-card" data-aos="fade-up" data-aos-delay="500">
+                                                                                            <div class="card-icon">
+                                                                                                <i class="bi bi-joystick"></i>
+                                                                                            </div>
+                                                                                            <div class="card-content">
+                                                                                                <h6>PPLG</h6>
+                                                                                                <span>Jurusan</span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div> -->
                             </div>
                         </div>
 
@@ -97,13 +99,64 @@
 
         </section><!-- /Courses Hero Section -->
 
+        <!-- Principal Welcome Section -->
+        <section id="principal-welcome" class="principal-welcome section">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row align-items-center g-5">
+
+                    <!-- Gambar Kepala Sekolah -->
+                    <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+                        <div class="welcome-image text-center text-lg-start">
+                            <img src="{{ asset('assets/img/kepala-sekolah.jpg') }}" alt="Kepala Sekolah"
+                                class="img-fluid rounded-4" style="max-height: 600px; object-fit: cover; width: 100%;">
+                        </div>
+                    </div>
+
+                    <!-- Teks Sambutan -->
+                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+                        <div class="welcome-text">
+                            <h2 class="mb-3 fw-bold">Sambutan Kepala Sekolah</h2>
+                            <p>Assalamu'alaikum Warahmatullahi Wabarakatuh,</p>
+                            <p style="text-align: justify;">
+                                Berbagai penelitian menjelaskan bahwa
+                                pendidikan sangat berpengaruh besar dalam mengubah
+                                sikap mental dan perilaku manusia. Dengan pendidikan perilaku-perilaku negatif yang terjadi
+                                di masyarakat dapat diminimalisir, baik pendidikan dengan jalur formal, seperti sekolah
+                                ataupun nonformal seperti pesantren atau memadukan keduanya.</p>
+                            <p style="text-align: justify;">
+                                Surveipun membuktikan bahwa hal yang paling efektif untuk memajukan sebuah bangsa adalah
+                                pendidikan yang menghasilkan SDM berkualitas, begitupun dunia industri yang begitu
+                                kompetitif hanya memberi kesempatan berkarya bagi manusia yang unggul.
+
+                            </p>
+                            <p style="text-align: justify;">
+                                Oleh karena itu SMK IT Baitul Aziz hadir dengan kurikulum Nasional yang dipadukan dengan
+                                paradigma peradaban Robbaniyah untuk mencetak peserta didik yang siap menghadapi
+                                perkembangan zaman dengan kompetisi kejuruan yang profesional dan akhlak yang Qur'ani.</p>
+                            </p>
+                            <div class="principal-signature mt-4 d-flex align-items-center">
+                                <div class="signature-text">
+                                    <h5 class="mb-0 fw-semibold">H.Feny Irfany Muhammad, ST., M.AP.</h5>
+                                    <span>Kepala Sekolah SMK IT Baitul Aziz</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section><!-- /Principal Welcome Section -->
+
+
         <!-- Featured Instructors Section -->
         <section id="featured-instructors" class="featured-instructors section">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>Para Pengajar Kami</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+                <p>Yuk, kenalan dengan para Pengajar di SMK IT Baitul Aziz.</p>
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -126,16 +179,6 @@
                                 <p class="specialty">Web Development</p>
                                 <p class="description">Nulla facilisi morbi tempus iaculis urna id volutpat lacus
                                     laoreet non curabitur gravida.</p>
-                                <div class="stats-grid">
-                                    <div class="stat">
-                                        <span class="number">2.1k</span>
-                                        <span class="label">Students</span>
-                                    </div>
-                                    <div class="stat">
-                                        <span class="number">4.8</span>
-                                        <span class="label">Rating</span>
-                                    </div>
-                                </div>
                                 <div class="action-buttons">
                                     <a href="#" class="btn-view">View Profile</a>
                                     <div class="social-links">
@@ -163,16 +206,6 @@
                                 <p class="specialty">Data Science</p>
                                 <p class="description">Suspendisse potenti nullam ac tortor vitae purus faucibus ornare
                                     suspendisse sed nisi.</p>
-                                <div class="stats-grid">
-                                    <div class="stat">
-                                        <span class="number">3.5k</span>
-                                        <span class="label">Students</span>
-                                    </div>
-                                    <div class="stat">
-                                        <span class="number">4.9</span>
-                                        <span class="label">Rating</span>
-                                    </div>
-                                </div>
                                 <div class="action-buttons">
                                     <a href="#" class="btn-view">View Profile</a>
                                     <div class="social-links">
@@ -184,83 +217,10 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <div class="instructor-card">
-                            <div class="instructor-image">
-                                <img src="assets/img/education/teacher-4.webp" class="img-fluid" alt="">
-                                <div class="overlay-content">
-                                    <div class="course-count">
-                                        <i class="bi bi-play-circle"></i>
-                                        <span>15 Courses</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="instructor-info">
-                                <h5>Amanda Rodriguez</h5>
-                                <p class="specialty">UX Design</p>
-                                <p class="description">Pellentesque habitant morbi tristique senectus et netus et
-                                    malesuada fames ac turpis.</p>
-                                <div class="stats-grid">
-                                    <div class="stat">
-                                        <span class="number">1.8k</span>
-                                        <span class="label">Students</span>
-                                    </div>
-                                    <div class="stat">
-                                        <span class="number">4.6</span>
-                                        <span class="label">Rating</span>
-                                    </div>
-                                </div>
-                                <div class="action-buttons">
-                                    <a href="#" class="btn-view">View Profile</a>
-                                    <div class="social-links">
-                                        <a href="#"><i class="bi bi-dribbble"></i></a>
-                                        <a href="#"><i class="bi bi-behance"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
-                        <div class="instructor-card">
-                            <div class="instructor-image">
-                                <img src="assets/img/education/teacher-9.webp" class="img-fluid" alt="">
-                                <div class="overlay-content">
-                                    <div class="course-count">
-                                        <i class="bi bi-play-circle"></i>
-                                        <span>21 Courses</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="instructor-info">
-                                <h5>David Thompson</h5>
-                                <p class="specialty">Digital Marketing</p>
-                                <p class="description">Vivamus magna justo lacinia eget consectetur sed convallis at
-                                    tellus curabitur non nulla.</p>
-                                <div class="stats-grid">
-                                    <div class="stat">
-                                        <span class="number">2.9k</span>
-                                        <span class="label">Students</span>
-                                    </div>
-                                    <div class="stat">
-                                        <span class="number">4.7</span>
-                                        <span class="label">Rating</span>
-                                    </div>
-                                </div>
-                                <div class="action-buttons">
-                                    <a href="#" class="btn-view">View Profile</a>
-                                    <div class="social-links">
-                                        <a href="#"><i class="bi bi-instagram"></i></a>
-                                        <a href="#"><i class="bi bi-facebook"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
             </div>
-
+            
         </section><!-- /Featured Instructors Section -->
 
         <!-- Course Categories Section -->
@@ -534,29 +494,29 @@
                         <div class="testimonials-container">
                             <div class="swiper testimonials-slider init-swiper" data-aos="fade-up" data-aos-delay="400">
                                 <script type="application/json" class="swiper-config">
-                                  {
-                                    "loop": true,
-                                    "speed": 600,
-                                    "autoplay": {
-                                      "delay": 5000
-                                    },
-                                    "slidesPerView": 1,
-                                    "spaceBetween": 30,
-                                    "pagination": {
-                                      "el": ".swiper-pagination",
-                                      "type": "bullets",
-                                      "clickable": true
-                                    },
-                                    "breakpoints": {
-                                      "768": {
-                                        "slidesPerView": 2
-                                      },
-                                      "992": {
-                                        "slidesPerView": 3
-                                      }
-                                    }
-                                  }
-                                </script>
+                                                                                          {
+                                                                                            "loop": true,
+                                                                                            "speed": 600,
+                                                                                            "autoplay": {
+                                                                                              "delay": 5000
+                                                                                            },
+                                                                                            "slidesPerView": 1,
+                                                                                            "spaceBetween": 30,
+                                                                                            "pagination": {
+                                                                                              "el": ".swiper-pagination",
+                                                                                              "type": "bullets",
+                                                                                              "clickable": true
+                                                                                            },
+                                                                                            "breakpoints": {
+                                                                                              "768": {
+                                                                                                "slidesPerView": 2
+                                                                                              },
+                                                                                              "992": {
+                                                                                                "slidesPerView": 3
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        </script>
 
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
@@ -695,7 +655,7 @@
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>Berita & Kegiatan Terbaru</h2>
-                <p>Ikuti perkembangan terkini dan informasi seputar kegiatan di SMK IT Baitul Aziz</p>
+                <p>Ikuti perkembangan terkini dan informasi seputar kegiatan di SMK IT Baitul Aziz.</p>
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">

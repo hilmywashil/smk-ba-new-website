@@ -113,12 +113,9 @@
                                                                     class="w-100 h-100 object-fit-cover rounded" alt="">
                                                             </div>
                                                             <a href="{{ route('posts.show', $post->slug) }}" target="_blank"
-                                                                data-bs-toggle="tooltip" title="Lihat Postingan">
+                                                                data-bs-toggle="tooltip" title="{{ $post->title }}">
                                                                 <span
                                                                     class="d-block">{{ Str::limit(strip_tags($post->title), 30) }}</span>
-                                                                <span
-                                                                    class="fs-12 d-block fw-normal text-muted">{{ Str::limit(strip_tags($post->content), 20) }}
-                                                                </span>
                                                             </a>
                                                         </div>
                                                     </td>
@@ -132,7 +129,7 @@
                                                     <td>
                                                         <span
                                                             class="badge 
-                                                                                    {{ $post->status === 'published' ? 'bg-soft-success text-success' : 'bg-gray-200 text-dark' }}">
+                                                                    {{ $post->status === 'published' ? 'bg-soft-success text-success' : 'bg-gray-200 text-dark' }}">
                                                             {{ $post->status === 'published' ? 'PUBLIKASI' : 'DRAF' }}
                                                         </span>
                                                     </td>

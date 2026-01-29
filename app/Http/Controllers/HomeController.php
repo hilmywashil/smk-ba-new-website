@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $recentBlog = Post::latest()->take(3)->get();
+        $recentBlog = Post::where('status', 'published')->take(3)->get();
 
         return view('pages.home', compact('recentBlog'));
     }

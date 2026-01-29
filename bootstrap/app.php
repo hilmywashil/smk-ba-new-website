@@ -15,7 +15,14 @@ return Application::configure(basePath: dirname(__DIR__))
             'role' => \App\Http\Middleware\RoleMiddleware::class,
         ]);
     })
-    ->withExceptions(function (Exceptions $exceptions): void {
-        //
-    })->create();
+    ->withExceptions(function ($exceptions) {
+        $exceptions->render(function (Symfony\Component\HttpKernel\Exception\NotFoundHttpException $e, $request) {
+            return response()->view('errors.404', [], 404);
+        });
 
+        $exceptions->render(function (Symfony\Component\HttpKernel\Exception\HttpException $e, $request) {
+            if ($e->getStatusCode() === 403) {
+                return response()->view('errors.403', [], 403);
+            }
+        });
+    })->create();

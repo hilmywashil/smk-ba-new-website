@@ -22,9 +22,9 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:6|confirmed',
         ]);
 
         $data['password'] = Hash::make($data['password']);
@@ -36,7 +36,7 @@ class AuthController extends Controller
             'role' => 'siswa',
         ]);
 
-        return redirect('/login');
+        return redirect()->route('login')->with('success', 'Akun berhasil dibuat. Silakan login.');
     }
 
     public function login(Request $request)

@@ -24,6 +24,6 @@ class MessageController extends Controller
             'status' => 'unread',
         ]);
 
-        return redirect('/contact')->with('success', 'Your message has been sent successfully!');
+        return redirect()->route('contact')->with('success', 'Your message has been sent successfully!');
     }
 }

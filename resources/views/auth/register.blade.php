@@ -10,10 +10,10 @@
     <meta name="author" content="theme_ocean">
     <!--! The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags !-->
     <!--! BEGIN: Apps Title-->
-    <title>Duralux || Register Cover</title>
+    <title>Daftar - SMK IT Baitul Aziz</title>
     <!--! END:  Apps Title-->
     <!--! BEGIN: Favicon-->
-    <link rel="shortcut icon" type="image/x-icon" href="admin/assets/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.png') }}">
     <!--! END: Favicon-->
     <!--! BEGIN: Bootstrap CSS-->
     <link rel="stylesheet" type="text/css" href="admin/assets/css/bootstrap.min.css">
@@ -40,24 +40,31 @@
         <div class="auth-cover-sidebar-inner">
             <div class="auth-cover-card-wrapper">
                 <div class="auth-cover-card p-sm-5">
-                    <h2 class="fs-20 fw-bolder mb-4">Register</h2>
-                    <h4 class="fs-13 fw-bold mb-2">Manage all your Duralux crm</h4>
-                    <p class="fs-12 fw-medium text-muted">Let's get you all setup, so you can verify your personal account and begine setting up your profile.</p>
-                    <form action="index.html" class="w-100 mt-4 pt-2">
+                    <h2 class="fs-20 fw-bolder mb-4">Buat Akun</h2>
+                    <h4 class="fs-13 fw-bold mb-2">Buat Akun Siswa</h4>
+                    <p class="fs-12 fw-medium text-muted">Silahkan isi form dibawah untuk Buat Akun Siswa.</p>
+                    <form action="{{ route('register') }}" method="POST" class="w-100 mt-4 pt-2">
+                        @csrf
                         <div class="mb-4">
-                            <input type="text" class="form-control" placeholder="Full Name" required>
+                            <input type="text" name="name" class="form-control" placeholder="Nama Lengkap" required>
+                            @error('name')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="mb-4">
-                            <input type="email" class="form-control" placeholder="Email" required>
-                        </div>
-                        <div class="mb-4">
-                            <input type="tel" class="form-control" placeholder="Username" required>
+                            <input type="email" name="email" class="form-control" placeholder="Email" required>
+                            @error('email')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="mb-4 generate-pass">
                             <div class="input-group field">
-                                <input type="password" class="form-control password" id="newPassword" placeholder="Password Confirm">
-                                <div class="input-group-text c-pointer gen-pass" data-bs-toggle="tooltip" title="Generate Password"><i class="feather-hash"></i></div>
-                                <div class="input-group-text border-start bg-gray-2 c-pointer show-pass" data-bs-toggle="tooltip" title="Show/Hide Password"><i></i></div>
+                                <input type="password" name="password" class="form-control password" id="newPassword"
+                                    placeholder="Password" required>
+                                <div class="input-group-text c-pointer gen-pass" data-bs-toggle="tooltip"
+                                    title="Buat Password Acak"><i class="feather-hash"></i></div>
+                                <div class="input-group-text border-start bg-gray-2 c-pointer show-pass"
+                                    data-bs-toggle="tooltip" title="Lihat/Sembunyikan Password"><i></i></div>
                             </div>
                             <div class="progress-bar mt-2">
                                 <div></div>
@@ -65,27 +72,30 @@
                                 <div></div>
                                 <div></div>
                             </div>
+                            @error('password')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                         <div class="mb-4">
-                            <input type="password" class="form-control" placeholder="Password again" required>
+                            <input type="password" name="password_confirmation" class="form-control"
+                                placeholder="Konfirmasi Password" required>
                         </div>
                         <div class="mt-4">
-                            <div class="custom-control custom-checkbox mb-2">
-                                <input type="checkbox" class="custom-control-input" id="receiveMial" required>
-                                <label class="custom-control-label c-pointer text-muted" for="receiveMial" style="font-weight: 400 !important">Yes, I wnat to receive Duralux community emails</label>
-                            </div>
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="termsCondition" required>
-                                <label class="custom-control-label c-pointer text-muted" for="termsCondition" style="font-weight: 400 !important">I agree to all the <a href="">Terms &amp; Conditions</a> and <a href="">Fees</a>.</label>
+                                <input type="checkbox" class="custom-control-input" id="termsCondition"
+                                    name="termsCondition" required>
+                                <label class="custom-control-label c-pointer text-muted" for="termsCondition"
+                                    style="font-weight: 400 !important">Saya setuju dengan <a href="">Syarat &amp;
+                                        Ketentuan</a> yang berlaku.</label>
                             </div>
                         </div>
                         <div class="mt-5">
-                            <button type="submit" class="btn btn-lg btn-primary w-100">Create Account</button>
+                            <button type="submit" class="btn btn-lg btn-primary w-100">Buat Akun</button>
                         </div>
                     </form>
                     <div class="mt-5 text-muted">
-                        <span>Already have an account?</span>
-                        <a href="{{ route('login') }}" class="fw-bold">Login</a>
+                        <span>Sudah punya akun?</span>
+                        <a href="{{ route('login') }}" class="fw-bold">Masuk</a>
                     </div>
                 </div>
             </div>

@@ -6,19 +6,6 @@
 
     <main class="main">
 
-        <!-- Page Title -->
-        <div class="page-title light-background">
-            <div class="container d-lg-flex justify-content-between align-items-center">
-                <h1 class="mb-2 mb-lg-0">Kontak Kami</h1>
-                <nav class="breadcrumbs">
-                    <ol>
-                        <li><a href="index.html">Beranda</a></li>
-                        <li class="current">Kontak</li>
-                    </ol>
-                </nav>
-            </div>
-        </div><!-- End Page Title -->
-
         <!-- Contact Section -->
         <section id="contact" class="contact section">
 
@@ -82,43 +69,46 @@
                             <p>Ada pertanyaan atau ingin mengetahui informasi lebih lanjut? Jangan ragu untuk menghubungi
                                 kami.</p>
 
-                            <form action="{{ route('messages.store') }}" method="POST" class="php-email-form">
+                            <form action="{{ route('messages.store') }}" method="POST" class="php-email-form"
+                                id="contactForm">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6 form-group">
-                                        <input type="text" name="name" class="form-control" id="name" placeholder="Nama"
-                                            required>
+                                        <input type="text" name="name" class="form-control" placeholder="Nama" required>
                                     </div>
                                     <div class="col-md-6 form-group mt-3 mt-md-0">
-                                        <input type="email" class="form-control" name="email" id="email" placeholder="Email"
-                                            required>
+                                        <input type="email" class="form-control" name="email" placeholder="Email" required>
                                     </div>
                                 </div>
+
                                 <div class="form-group mt-3">
-                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subjek"
-                                        required>
+                                    <input type="text" class="form-control" name="subject" placeholder="Subjek" required>
                                 </div>
+
                                 <div class="form-group mt-3">
                                     <textarea class="form-control" name="message" rows="5" placeholder="Pesan"
                                         required></textarea>
                                 </div>
 
                                 <div class="my-3">
-                                    <div class="loading" style="display:none;">Loading</div>
-                                    <div class="error-message" style="color:red;"></div>
-                                    <div class="sent-message" style="color:green;"></div>
+                                    <div class="loading" style="display:none;">Loading...</div>
+                                    <div class="error-message" style="color:red;">
+                                        @if($errors->any())
+                                            {{ $errors->first() }}
+                                        @endif
+                                    </div>
+                                    <div class="sent-message" style="color:green;">
+                                        @if(session('success'))
+                                            {{ session('success') }}
+                                        @endif
+                                    </div>
                                 </div>
 
                                 <div class="form-submit">
                                     <button type="submit">Send Message</button>
-                                    <div class="social-links">
-                                        <a href="#"><i class="bi bi-twitter"></i></a>
-                                        <a href="#"><i class="bi bi-facebook"></i></a>
-                                        <a href="#"><i class="bi bi-instagram"></i></a>
-                                        <a href="#"><i class="bi bi-linkedin"></i></a>
-                                    </div>
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </div>
