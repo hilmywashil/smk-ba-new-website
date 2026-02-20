@@ -6,7 +6,8 @@
         <div class="m-header">
             <a href="{{ route('home') }}" class="b-brand">
                 <!-- ========   change your logo hear   ============ -->
-                <img src="{{ asset('admin/assets/images/logo-full.png') }}" alt="" class="logo logo-lg" style="width: 200px !important"/>
+                <img src="{{ asset('admin/assets/images/logo-full.png') }}" alt="" class="logo logo-lg"
+                    style="width: 200px !important" />
                 <img src="{{ asset('assets/img/logo.png') }}" alt="" class="logo logo-sm" />
             </a>
         </div>
@@ -27,16 +28,22 @@
                 </li>
                 <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-globe"></i></span>
+                        <span class="nxl-mtext">Kelola Website</span><span class="nxl-arrow"><i
+                                class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.home') }}">Beranda</a></li>
+                    </ul>
+                </li>
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
                         <span class="nxl-micon"><i class="feather-file-text"></i></span>
                         <span class="nxl-mtext">Kelola Konten</span><span class="nxl-arrow"><i
                                 class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
                         <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.berita') }}">Postingan</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="reports-leads.html">Leads Report</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="reports-project.html">Project Report</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="reports-timesheets.html">Timesheets Report</a>
-                        </li>
                     </ul>
                 </li>
                 <li class="nxl-item nxl-hasmenu">
@@ -46,20 +53,8 @@
                                 class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.messages') }}">Pesan Masuk</a></li>
-                    </ul>
-                </li>
-                <li class="nxl-item nxl-hasmenu">
-                    <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-at-sign"></i></span>
-                        <span class="nxl-mtext">Proposal</span><span class="nxl-arrow"><i
-                                class="feather-chevron-right"></i></span>
-                    </a>
-                    <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="proposal.html">Proposal</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="proposal-view.html">Proposal View</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="proposal-edit.html">Proposal Edit</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="proposal-create.html">Proposal Create</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('admin.messages') }}">Pesan Masuk</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nxl-item nxl-hasmenu">
@@ -249,7 +244,7 @@
                     </ul>
                 </li>
             </ul>
-            
+
             <div class="card text-center">
                 <div class="card-body">
                     <i class="feather-sunrise fs-4 text-dark"></i>

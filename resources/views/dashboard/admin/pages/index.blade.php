@@ -28,9 +28,6 @@
                             </a>
                         </div>
                         <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-                            <div id="reportrange" class="reportrange-picker d-flex align-items-center">
-                                <span class="reportrange-picker-field"></span>
-                            </div>
                             <div class="dropdown filter-dropdown">
                                 <a class="btn btn-light-brand" data-bs-toggle="dropdown" data-bs-offset="0, 10"
                                     data-bs-auto-close="outside">

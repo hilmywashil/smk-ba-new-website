@@ -24,10 +24,18 @@ class AdminPostController extends Controller
             $query->where('status', $request->status);
         }
 
-        $posts = $query->orderBy('created_at', 'desc')->paginate(15)->withQueryString();
+        if ($request->filled('search')) {
+            $query->where('title', 'like', '%' . $request->search . '%');
+        }
+
+        $posts = $query
+            ->orderBy('created_at', 'desc')
+            ->paginate(15)
+            ->withQueryString();
 
         return view('dashboard.admin.pages.berita', compact('posts'));
     }
+
 
     public function create()
     {
@@ -60,7 +68,14 @@ class AdminPostController extends Controller
             $image = $manager->read($request->file('image'));
 
             $filename = $data['slug'] . '.webp';
-            $path = storage_path('app/public/posts/' . $filename);
+
+            $directory = storage_path('app/public/posts');
+
+            if (!file_exists($directory)) {
+                mkdir($directory, 0777, true);
+            }
+
+            $path = $directory . '/' . $filename;
 
             $image->scaleDown(width: 1200);
 
@@ -69,13 +84,14 @@ class AdminPostController extends Controller
             $data['image'] = 'posts/' . $filename;
         }
 
+
         $data['author_id'] = Auth::id();
 
         Post::create($data);
 
         return redirect()
             ->route('admin.berita')
-            ->with('success', 'Berita berhasil ditambahkan.');
+            ->with('success', 'Postingan berhasil ditambahkan.');
     }
 
     public function edit($id)
@@ -121,7 +137,7 @@ class AdminPostController extends Controller
 
         return redirect()
             ->route('admin.berita')
-            ->with('success', 'Berita berhasil diperbarui.');
+            ->with('success', 'Postingan berhasil diperbarui.');
     }
 
     public function destroy($id)
@@ -136,6 +152,6 @@ class AdminPostController extends Controller
 
         return redirect()
             ->route('admin.berita')
-            ->with('success', 'Berita berhasil dihapus.');
+            ->with('success', 'Postingan berhasil dihapus.');
     }
 }

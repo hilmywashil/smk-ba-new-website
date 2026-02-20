@@ -138,7 +138,7 @@
     <!--! END: Theme Customizer !-->
     <script>
         const notyf = new Notyf({
-            position: { x: 'right', y: 'top' },
+            position: { x: 'right', y: 'bottom' },
             duration: 3000,
             ripple: false,
             dismissible: true

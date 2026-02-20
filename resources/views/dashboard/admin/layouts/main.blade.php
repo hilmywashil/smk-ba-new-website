@@ -28,6 +28,7 @@
 </head>
 
 <body>
+
     @include('dashboard.admin.layouts.components.sidebar')
 
     @include('dashboard.admin.layouts.components.header')

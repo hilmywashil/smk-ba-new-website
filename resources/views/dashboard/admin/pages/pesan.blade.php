@@ -108,12 +108,12 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Nama Pengirim & Subjek</th>
-                                                <th scope="col">Email Pengirim</th>
+                                                <th scope="col">Nama & Email Pengirim</th>
+                                                <th scope="col">Subjek</th>
                                                 <th scope="col">Pesan Singkat</th>
                                                 <th scope="col">Dikirim</th>
                                                 <th scope="col">Status</th>
-                                                <th scope="col">Aksi</th>
+                                                <th scope="col" class="text-end">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -124,12 +124,12 @@
                                                             <div>
                                                                 <a href="javascript:void(0);"
                                                                     class="d-block">{{ $msg->name }}</a>
-                                                                <span class="fs-12 text-muted">{{ Str::limit(strip_tags($msg->subject), 30) }}</span>
+                                                                <span class="fs-12 text-muted">{{ $msg->email }}</span>
                                                             </div>
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        {{ $msg->email }}
+                                                        <span data-bs-toggle="tooltip" title="{{ $msg->subject }}">{{ Str::limit(strip_tags($msg->subject), 30) }}</span>
                                                     </td>
                                                     <td>
                                                         {{ Str::limit(strip_tags($msg->message), 30) }}
@@ -143,7 +143,7 @@
                                                             {{ $msg->status === 'read' ? 'DIBACA' : 'BELUM DIBACA' }}
                                                         </span>
                                                     </td>
-                                                    <td>
+                                                    <td  class="text-end">
                                                         <div class="d-inline-flex gap-2">
                                                             <a href="javascript:void(0);"
                                                                 class="btn btn-sm btn-warning btn-view-message"

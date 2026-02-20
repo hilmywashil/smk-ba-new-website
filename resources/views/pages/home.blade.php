@@ -10,82 +10,138 @@
 
             <div class="hero-content">
                 <div class="container">
-                    <div class="row align-items-center">
+                    @if ($hero)
+                        <div class="row align-items-center">
+                            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                                <div class="hero-text">
+                                    <h1>{{ $hero->title }}</h1>
+                                    <p>{{ $hero->subtitle }}.</p>
 
-                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                            <div class="hero-text">
-                                <h1>SMK IT Baitul Aziz</h1>
-                                <p>Membentuk Generasi Unggul yang Berakhlak Mulia dan Terampil di Bidang Teknologi
-                                    Informasi.</p>
+                                    <!-- <div class="hero-stats">
+                                        <div class="stat-item">
+                                            <span class="number purecounter" data-purecounter-start="0"
+                                                data-purecounter-end="100" data-purecounter-duration="2"></span>
+                                            <span class="label">Siswa/i</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="number purecounter" data-purecounter-start="0"
+                                                data-purecounter-end="1000" data-purecounter-duration="2"></span>
+                                            <span class="label">Lebih Alumni</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="number purecounter" data-purecounter-start="0"
+                                                data-purecounter-end="12" data-purecounter-duration="2"></span>
+                                            <span class="label">Tahun Berdiri</span>
+                                        </div>
+                                    </div> -->
 
-                                <!-- <div class="hero-stats">
-                                                                                                    <div class="stat-item">
-                                                                                                        <span class="number purecounter" data-purecounter-start="0"
-                                                                                                            data-purecounter-end="100" data-purecounter-duration="2"></span>
-                                                                                                        <span class="label">Siswa/i</span>
-                                                                                                    </div>
-                                                                                                    <div class="stat-item">
-                                                                                                        <span class="number purecounter" data-purecounter-start="0"
-                                                                                                            data-purecounter-end="1000" data-purecounter-duration="2"></span>
-                                                                                                        <span class="label">Lebih Alumni</span>
-                                                                                                    </div>
-                                                                                                    <div class="stat-item">
-                                                                                                        <span class="number purecounter" data-purecounter-start="0"
-                                                                                                            data-purecounter-end="12" data-purecounter-duration="2"></span>
-                                                                                                        <span class="label">Tahun Berdiri</span>
-                                                                                                    </div>
-                                                                                                </div> -->
+                                    <div class="hero-buttons">
+                                        <a href="#courses" class="btn btn-primary">Tentang Kami</a>
+                                        <a href="#about" class="btn btn-outline">Kontak Kami</a>
+                                    </div>
 
-                                <div class="hero-buttons">
-                                    <a href="#courses" class="btn btn-primary">Tentang Kami</a>
-                                    <a href="#about" class="btn btn-outline">Kontak Kami</a>
                                 </div>
+                            </div>
 
+                            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                                <div class="hero-image">
+                                    <div class="main-image">
+                                        <img src="{{ asset('storage/' . $hero->image) }}" alt="Online Learning"
+                                            class="img-fluid">
+                                    </div>
+
+                                    <div class="floating-cards">
+                                        <div class="course-card" data-aos="fade-up" data-aos-delay="300">
+                                            <div class="card-icon">
+                                                <i class="bi bi-book"></i>
+                                            </div>
+                                            <div class="card-content">
+                                                <h6>Pendidikan Karakter Islami</h6>
+                                                <span>Keunggulan</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="course-card" data-aos="fade-up" data-aos-delay="400">
+                                            <div class="card-icon">
+                                                <i class="bi bi-code-slash"></i>
+                                            </div>
+                                            <div class="card-content">
+                                                <h6>Pembelajaran Coding Intensif</h6>
+                                                <span>Keunggulan</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="course-card" data-aos="fade-up" data-aos-delay="500">
+                                            <div class="card-icon">
+                                                <i class="bi bi-wifi"></i>
+                                            </div>
+                                            <div class="card-content">
+                                                <h6>Jaringan Industri Luas</h6>
+                                                <span>Keunggulan</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    @else
+                        <div class="row align-items-center">
+                            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                                <div class="hero-text">
+                                    <h1>Nama Sekolah</h1>
+                                    <p>Tambah data hero untuk mengubah tampilan ini.</p>
+
+                                    <div class="hero-buttons">
+                                        <a href="#courses" class="btn btn-primary">Tentang Kami</a>
+                                        <a href="#about" class="btn btn-outline">Kontak Kami</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                                <div class="hero-image">
+                                    <div class="main-image">
+                                        <img src="{{ asset('assets/img/bg/placeholder-1200x800.png') }}" alt="Online Learning"
+                                            class="img-fluid">
+                                    </div>
+
+                                    <div class="floating-cards">
+                                        <div class="course-card" data-aos="fade-up" data-aos-delay="300">
+                                            <div class="card-icon">
+                                                <i class="bi bi-book"></i>
+                                            </div>
+                                            <div class="card-content">
+                                                <h6>Lorem Ipsum</h6>
+                                                <span>Lorem Ipsum</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="course-card" data-aos="fade-up" data-aos-delay="400">
+                                            <div class="card-icon">
+                                                <i class="bi bi-code-slash"></i>
+                                            </div>
+                                            <div class="card-content">
+                                                <h6>Lorem Ipsum</h6>
+                                                <span>Lorem Ipsum</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="course-card" data-aos="fade-up" data-aos-delay="500">
+                                            <div class="card-icon">
+                                                <i class="bi bi-wifi"></i>
+                                            </div>
+                                            <div class="card-content">
+                                                <h6>Lorem Ipsum</h6>
+                                                <span>Lorem Ipsum</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                            <div class="hero-image">
-                                <div class="main-image">
-                                    <img src="{{ asset('assets/img/bg/paskibra.jpg') }}" alt="Online Learning"
-                                        class="img-fluid">
-                                </div>
-
-                                <!-- <div class="floating-cards">
-                                                                                        <div class="course-card" data-aos="fade-up" data-aos-delay="300">
-                                                                                            <div class="card-icon">
-                                                                                                <i class="bi bi-code-slash"></i>
-                                                                                            </div>
-                                                                                            <div class="card-content">
-                                                                                                <h6>Rekayasa Perangkat Lunak</h6>
-                                                                                                <span>Jurusan</span>
-                                                                                            </div>
-                                                                                        </div>
-
-                                                                                        <div class="course-card" data-aos="fade-up" data-aos-delay="400">
-                                                                                            <div class="card-icon">
-                                                                                                <i class="bi bi-palette"></i>
-                                                                                            </div>
-                                                                                            <div class="card-content">
-                                                                                                <h6>UI/UX Design</h6>
-                                                                                                <span>1,890 Students</span>
-                                                                                            </div>
-                                                                                        </div>
-
-                                                                                        <div class="course-card" data-aos="fade-up" data-aos-delay="500">
-                                                                                            <div class="card-icon">
-                                                                                                <i class="bi bi-joystick"></i>
-                                                                                            </div>
-                                                                                            <div class="card-content">
-                                                                                                <h6>PPLG</h6>
-                                                                                                <span>Jurusan</span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div> -->
-                            </div>
-                        </div>
-
-                    </div>
+                    @endif
                 </div>
             </div>
 
@@ -220,7 +276,7 @@
                 </div>
 
             </div>
-            
+
         </section><!-- /Featured Instructors Section -->
 
         <!-- Course Categories Section -->
@@ -494,29 +550,29 @@
                         <div class="testimonials-container">
                             <div class="swiper testimonials-slider init-swiper" data-aos="fade-up" data-aos-delay="400">
                                 <script type="application/json" class="swiper-config">
-                                                                                          {
-                                                                                            "loop": true,
-                                                                                            "speed": 600,
-                                                                                            "autoplay": {
-                                                                                              "delay": 5000
-                                                                                            },
-                                                                                            "slidesPerView": 1,
-                                                                                            "spaceBetween": 30,
-                                                                                            "pagination": {
-                                                                                              "el": ".swiper-pagination",
-                                                                                              "type": "bullets",
-                                                                                              "clickable": true
-                                                                                            },
-                                                                                            "breakpoints": {
-                                                                                              "768": {
-                                                                                                "slidesPerView": 2
-                                                                                              },
-                                                                                              "992": {
-                                                                                                "slidesPerView": 3
-                                                                                              }
-                                                                                            }
-                                                                                          }
-                                                                                        </script>
+                                                                                                                          {
+                                                                                                                            "loop": true,
+                                                                                                                            "speed": 600,
+                                                                                                                            "autoplay": {
+                                                                                                                              "delay": 5000
+                                                                                                                            },
+                                                                                                                            "slidesPerView": 1,
+                                                                                                                            "spaceBetween": 30,
+                                                                                                                            "pagination": {
+                                                                                                                              "el": ".swiper-pagination",
+                                                                                                                              "type": "bullets",
+                                                                                                                              "clickable": true
+                                                                                                                            },
+                                                                                                                            "breakpoints": {
+                                                                                                                              "768": {
+                                                                                                                                "slidesPerView": 2
+                                                                                                                              },
+                                                                                                                              "992": {
+                                                                                                                                "slidesPerView": 3
+                                                                                                                              }
+                                                                                                                            }
+                                                                                                                          }
+                                                                                                                        </script>
 
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">

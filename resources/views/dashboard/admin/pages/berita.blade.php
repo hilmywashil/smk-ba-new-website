@@ -37,6 +37,13 @@
                                     <form action="{{ route('admin.berita') }}" method="GET"
                                         class="d-flex flex-column gap-2">
                                         <div class="mb-2">
+                                            <label for="search" class="form-label fs-12 mb-1">Judul</label>
+                                            <input type="text" name="search" id="search"
+                                                class="form-control form-control-sm" placeholder="Cari postingan..."
+                                                value="{{ request('search') }}">
+                                        </div>
+
+                                        <div class="mb-2">
                                             <label for="category" class="form-label fs-12 mb-1">Kategori</label>
                                             <select name="category" id="category" class="form-select form-select-sm">
                                                 <option value="">Semua Kategori</option>

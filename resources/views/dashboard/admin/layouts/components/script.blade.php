@@ -37,7 +37,7 @@
 <!-- FUNGSI: TOAST NOTYF -->
 <script>
     const notyf = new Notyf({
-        position: { x: 'right', y: 'top' },
+        position: { x: 'right', y: 'bottom' },
         duration: 3000,
         ripple: false,
         dismissible: true
@@ -273,5 +273,31 @@
             }, { once: true });
         });
 
+    });
+</script>
+
+{{-- Preview Image di halaman Edit --}}
+<script>
+    document.getElementById('image').addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const preview = document.getElementById('preview');
+        preview.src = URL.createObjectURL(file);
+        preview.classList.remove('d-none');
+    });
+</script>
+
+{{-- Slug Generator --}}
+<script>
+    document.getElementById('title').addEventListener('input', function () {
+        const slug = this.value
+            .toLowerCase()
+            .trim()
+            .replace(/[^a-z0-9\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-');
+
+        document.getElementById('slug').value = slug;
     });
 </script>

@@ -44,8 +44,8 @@
                                             <input type="file" name="image" id="image" class="d-none" accept="image/*">
 
                                             <button type="button" class="btn btn-primary" id="btnUpload">
-                                                    <i class="bi bi-upload me-2"></i> Upload Gambar Baru
-                                                </button>
+                                                <i class="bi bi-upload me-2"></i> Upload Gambar Baru
+                                            </button>
 
                                             @if($post->image)
                                                 <img id="preview" src="{{ asset('storage/' . $post->image) }}"
@@ -107,9 +107,11 @@
 
                                         {{-- Action --}}
                                         <div class="d-flex justify-content-end gap-2">
-                                            <a href="{{ route('admin.berita') }}" class="btn btn-light">
+                                            <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                                                data-bs-target="#cancelFormModal">
                                                 Batal
-                                            </a>
+                                            </button>
+
                                             <button type="submit" class="btn btn-primary">
                                                 <i class="feather-save me-1"></i> Update
                                             </button>
@@ -127,31 +129,36 @@
 
         </div>
     </main>
+    <div class="modal fade" id="cancelFormModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-warning">
+                        <i class="bi bi-exclamation-triangle me-2"></i>
+                        KONFIRMASI BATAL
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
 
-    {{-- Preview Image --}}
-    <script>
-        document.getElementById('image').addEventListener('change', function (e) {
-            const file = e.target.files[0];
-            if (!file) return;
+                <div class="modal-body">
+                    <p class="mb-2">
+                        Anda yakin ingin membatalkan?
+                    </p>
+                    <small class="text-muted">
+                        Perubahan yang Anda lakukan tidak akan tersimpan.
+                    </small>
+                </div>
 
-            const preview = document.getElementById('preview');
-            preview.src = URL.createObjectURL(file);
-            preview.classList.remove('d-none');
-        });
-    </script>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Kembali
+                    </button>
 
-    {{-- Slug Generator --}}
-    <script>
-        document.getElementById('title').addEventListener('input', function () {
-            const slug = this.value
-                .toLowerCase()
-                .trim()
-                .replace(/[^a-z0-9\s-]/g, '')
-                .replace(/\s+/g, '-')
-                .replace(/-+/g, '-');
-
-            document.getElementById('slug').value = slug;
-        });
-    </script>
-
+                    <a href="{{ route('admin.berita') }}" class="btn btn-warning">
+                        Ya, Batalkan
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
